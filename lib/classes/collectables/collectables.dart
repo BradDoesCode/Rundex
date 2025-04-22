@@ -58,6 +58,7 @@ sealed class Collectable with _$Collectable {
     @Default(Collection.none) Collection collection,
     String? location,
     String? region,
+    String? world,
     @Default(false) bool completed,
   }) = _Collectable;
 

@@ -16,6 +16,7 @@ _Collectable _$CollectableFromJson(Map<String, dynamic> json) => _Collectable(
               Collection.none,
       location: json['location'] as String?,
       region: json['region'] as String?,
+      world: json['world'] as String?,
       completed: json['completed'] as bool? ?? false,
     );
 
@@ -28,6 +29,7 @@ Map<String, dynamic> _$CollectableToJson(_Collectable instance) =>
       'collection': _$CollectionEnumMap[instance.collection]!,
       'location': instance.location,
       'region': instance.region,
+      'world': instance.world,
       'completed': instance.completed,
     };
 

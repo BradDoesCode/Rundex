@@ -16,6 +16,7 @@ sealed class Quest with _$Quest {
     QuestType? type,
     String? location,
     String? region,
+    String? world,
     List<String>? rewards,
     List<Quest>? steps,
     @Default(false) bool completed,

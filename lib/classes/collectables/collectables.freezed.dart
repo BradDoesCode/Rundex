@@ -22,6 +22,7 @@ mixin _$Collectable {
   Collection get collection;
   String? get location;
   String? get region;
+  String? get world;
   bool get completed;
 
   /// Create a copy of Collectable
@@ -49,6 +50,7 @@ mixin _$Collectable {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.region, region) || other.region == region) &&
+            (identical(other.world, world) || other.world == world) &&
             (identical(other.completed, completed) ||
                 other.completed == completed));
   }
@@ -56,11 +58,11 @@ mixin _$Collectable {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, image, type,
-      collection, location, region, completed);
+      collection, location, region, world, completed);
 
   @override
   String toString() {
-    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, completed: $completed)';
+    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, world: $world, completed: $completed)';
   }
 }
 
@@ -78,6 +80,7 @@ abstract mixin class $CollectableCopyWith<$Res> {
       Collection collection,
       String? location,
       String? region,
+      String? world,
       bool completed});
 }
 
@@ -100,6 +103,7 @@ class _$CollectableCopyWithImpl<$Res> implements $CollectableCopyWith<$Res> {
     Object? collection = null,
     Object? location = freezed,
     Object? region = freezed,
+    Object? world = freezed,
     Object? completed = null,
   }) {
     return _then(_self.copyWith(
@@ -131,6 +135,10 @@ class _$CollectableCopyWithImpl<$Res> implements $CollectableCopyWith<$Res> {
           ? _self.region
           : region // ignore: cast_nullable_to_non_nullable
               as String?,
+      world: freezed == world
+          ? _self.world
+          : world // ignore: cast_nullable_to_non_nullable
+              as String?,
       completed: null == completed
           ? _self.completed
           : completed // ignore: cast_nullable_to_non_nullable
@@ -150,6 +158,7 @@ class _Collectable implements Collectable {
       this.collection = Collection.none,
       this.location,
       this.region,
+      this.world,
       this.completed = false});
   factory _Collectable.fromJson(Map<String, dynamic> json) =>
       _$CollectableFromJson(json);
@@ -169,6 +178,8 @@ class _Collectable implements Collectable {
   final String? location;
   @override
   final String? region;
+  @override
+  final String? world;
   @override
   @JsonKey()
   final bool completed;
@@ -203,6 +214,7 @@ class _Collectable implements Collectable {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.region, region) || other.region == region) &&
+            (identical(other.world, world) || other.world == world) &&
             (identical(other.completed, completed) ||
                 other.completed == completed));
   }
@@ -210,11 +222,11 @@ class _Collectable implements Collectable {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, image, type,
-      collection, location, region, completed);
+      collection, location, region, world, completed);
 
   @override
   String toString() {
-    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, completed: $completed)';
+    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, world: $world, completed: $completed)';
   }
 }
 
@@ -234,6 +246,7 @@ abstract mixin class _$CollectableCopyWith<$Res>
       Collection collection,
       String? location,
       String? region,
+      String? world,
       bool completed});
 }
 
@@ -256,6 +269,7 @@ class __$CollectableCopyWithImpl<$Res> implements _$CollectableCopyWith<$Res> {
     Object? collection = null,
     Object? location = freezed,
     Object? region = freezed,
+    Object? world = freezed,
     Object? completed = null,
   }) {
     return _then(_Collectable(
@@ -286,6 +300,10 @@ class __$CollectableCopyWithImpl<$Res> implements _$CollectableCopyWith<$Res> {
       region: freezed == region
           ? _self.region
           : region // ignore: cast_nullable_to_non_nullable
+              as String?,
+      world: freezed == world
+          ? _self.world
+          : world // ignore: cast_nullable_to_non_nullable
               as String?,
       completed: null == completed
           ? _self.completed

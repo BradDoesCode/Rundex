@@ -21,6 +21,7 @@ mixin _$Quest {
   QuestType? get type;
   String? get location;
   String? get region;
+  String? get world;
   List<String>? get rewards;
   List<Quest>? get steps;
   bool get completed;
@@ -48,6 +49,7 @@ mixin _$Quest {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.region, region) || other.region == region) &&
+            (identical(other.world, world) || other.world == world) &&
             const DeepCollectionEquality().equals(other.rewards, rewards) &&
             const DeepCollectionEquality().equals(other.steps, steps) &&
             (identical(other.completed, completed) ||
@@ -64,13 +66,14 @@ mixin _$Quest {
       type,
       location,
       region,
+      world,
       const DeepCollectionEquality().hash(rewards),
       const DeepCollectionEquality().hash(steps),
       completed);
 
   @override
   String toString() {
-    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, rewards: $rewards, steps: $steps, completed: $completed)';
+    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps, completed: $completed)';
   }
 }
 
@@ -86,6 +89,7 @@ abstract mixin class $QuestCopyWith<$Res> {
       QuestType? type,
       String? location,
       String? region,
+      String? world,
       List<String>? rewards,
       List<Quest>? steps,
       bool completed});
@@ -109,6 +113,7 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
     Object? type = freezed,
     Object? location = freezed,
     Object? region = freezed,
+    Object? world = freezed,
     Object? rewards = freezed,
     Object? steps = freezed,
     Object? completed = null,
@@ -138,6 +143,10 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
           ? _self.region
           : region // ignore: cast_nullable_to_non_nullable
               as String?,
+      world: freezed == world
+          ? _self.world
+          : world // ignore: cast_nullable_to_non_nullable
+              as String?,
       rewards: freezed == rewards
           ? _self.rewards
           : rewards // ignore: cast_nullable_to_non_nullable
@@ -164,6 +173,7 @@ class _Quest implements Quest {
       this.type,
       this.location,
       this.region,
+      this.world,
       final List<String>? rewards,
       final List<Quest>? steps,
       this.completed = false})
@@ -183,6 +193,8 @@ class _Quest implements Quest {
   final String? location;
   @override
   final String? region;
+  @override
+  final String? world;
   final List<String>? _rewards;
   @override
   List<String>? get rewards {
@@ -235,6 +247,7 @@ class _Quest implements Quest {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.region, region) || other.region == region) &&
+            (identical(other.world, world) || other.world == world) &&
             const DeepCollectionEquality().equals(other._rewards, _rewards) &&
             const DeepCollectionEquality().equals(other._steps, _steps) &&
             (identical(other.completed, completed) ||
@@ -251,13 +264,14 @@ class _Quest implements Quest {
       type,
       location,
       region,
+      world,
       const DeepCollectionEquality().hash(_rewards),
       const DeepCollectionEquality().hash(_steps),
       completed);
 
   @override
   String toString() {
-    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, rewards: $rewards, steps: $steps, completed: $completed)';
+    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps, completed: $completed)';
   }
 }
 
@@ -274,6 +288,7 @@ abstract mixin class _$QuestCopyWith<$Res> implements $QuestCopyWith<$Res> {
       QuestType? type,
       String? location,
       String? region,
+      String? world,
       List<String>? rewards,
       List<Quest>? steps,
       bool completed});
@@ -297,6 +312,7 @@ class __$QuestCopyWithImpl<$Res> implements _$QuestCopyWith<$Res> {
     Object? type = freezed,
     Object? location = freezed,
     Object? region = freezed,
+    Object? world = freezed,
     Object? rewards = freezed,
     Object? steps = freezed,
     Object? completed = null,
@@ -325,6 +341,10 @@ class __$QuestCopyWithImpl<$Res> implements _$QuestCopyWith<$Res> {
       region: freezed == region
           ? _self.region
           : region // ignore: cast_nullable_to_non_nullable
+              as String?,
+      world: freezed == world
+          ? _self.world
+          : world // ignore: cast_nullable_to_non_nullable
               as String?,
       rewards: freezed == rewards
           ? _self._rewards

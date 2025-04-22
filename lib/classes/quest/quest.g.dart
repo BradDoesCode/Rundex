@@ -13,6 +13,7 @@ _Quest _$QuestFromJson(Map<String, dynamic> json) => _Quest(
       type: $enumDecodeNullable(_$QuestTypeEnumMap, json['type']),
       location: json['location'] as String?,
       region: json['region'] as String?,
+      world: json['world'] as String?,
       rewards:
           (json['rewards'] as List<dynamic>?)?.map((e) => e as String).toList(),
       steps: (json['steps'] as List<dynamic>?)
@@ -28,6 +29,7 @@ Map<String, dynamic> _$QuestToJson(_Quest instance) => <String, dynamic>{
       'type': _$QuestTypeEnumMap[instance.type],
       'location': instance.location,
       'region': instance.region,
+      'world': instance.world,
       'rewards': instance.rewards,
       'steps': instance.steps,
       'completed': instance.completed,

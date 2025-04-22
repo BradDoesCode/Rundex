@@ -43,7 +43,7 @@ class DrawerMenu extends StatelessWidget {
             Spacer(),
             ListTile(
               leading: const Icon(Icons.coffee),
-              title: const Text('Buy us a coffee'),
+              title: const Text('Buy us a nettle tea'),
               onTap: () {},
             ),
             Center(
