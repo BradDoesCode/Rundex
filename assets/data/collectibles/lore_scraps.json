@@ -1,5 +1,6 @@
 [
     {
+        "id": "1",
         "name": "Bloodstained Journal",
         "description": "A journal stained with blood, its contents a grim record of events.",
         "location": "On top of some crates next to a ruined wall",
@@ -8,6 +9,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444338"
     },
     {
+        "id": "2",
         "name": "Cathan's note",
         "description": "A note written by Cathan, offering insight into his journey.",
         "location": "On a crate next to Vannaka's tent",
@@ -16,6 +18,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444343"
     },
     {
+        "id": "3",
         "name": "Priest's Journal",
         "description": "A journal detailing the thoughts and prayers of a fallen priest.",
         "location": "On a bench next to the lake",
@@ -24,6 +27,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444384"
     },
     {
+        "id": "4",
         "name": "Pungent Scribble",
         "description": "A hastily scribbled note with a foul odor emanating from it.",
         "location": "In the corner of a ruined building on top of a crate",
@@ -32,6 +36,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444420"
     },
     {
+        "id": "5",
         "name": "Soot-stained Diary",
         "description": "A diary covered in soot, detailing a series of tragic events.",
         "location": "In the ruins at the top of a small staircase",
@@ -40,6 +45,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444499"
     },
     {
+        "id": "6",
         "name": "Scrawled Diary Page",
         "description": "A single page from a diary, barely legible due to the hasty writing.",
         "location": "On a boulder on top of a hill in a goblin camp",
@@ -48,6 +54,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444545"
     },
     {
+        "id": "7",
         "name": "Druid's Memoirs",
         "description": "Memoirs detailing the life and teachings of a forgotten druid.",
         "location": "On a stone next to a small goblin camp near a lake",
@@ -56,6 +63,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444566"
     },
     {
+        "id": "8",
         "name": "Grubby Note",
         "description": "A note covered in dirt and grime, containing cryptic messages.",
         "location": "On top of a crate against a destroyed wall",
@@ -64,6 +72,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444571"
     },
     {
+        "id": "9",
         "name": "Tear-Stained Journal",
         "description": "A journal with pages stained by tears, reflecting sorrow and regret.",
         "location": "On a broken log pillar in the corner of a destroyed wall",
@@ -72,6 +81,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444589"
     },
     {
+        "id": "10",
         "name": "Servant's Secret Diary",
         "description": "A servant's private diary, filled with secret musings and plans.",
         "location": "Inside the fortress, right after heading in, on the ground next to a wall",
@@ -80,6 +90,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444627"
     },
     {
+        "id": "11",
         "name": "Cathan's Journal [Castle]",
         "description": "A journal written by Cathan, found in the castle where his story continues.",
         "location": "On a crate at the top of the fortress structure, next to the chest",
@@ -88,6 +99,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444632"
     },
     {
+        "id": "12",
         "name": "Muddy Scrawl",
         "description": "A scrawl barely readable, written in mud on a ruined surface.",
         "location": "In the ruins, to the right of the steps",
@@ -96,6 +108,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444638"
     },
     {
+        "id": "13",
         "name": "Ancient Journal Page",
         "description": "A weathered page from an ancient journal, covered in cracks and stains.",
         "location": "On top of a rock on a ledge up a tall cliff",
@@ -104,6 +117,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444660"
     },
     {
+        "id": "14",
         "name": "Torn Journal Page",
         "description": "A torn page from a journal, its text faded and barely visible.",
         "location": "On a rock in front of some clay nodes",
@@ -112,6 +126,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444673"
     },
     {
+        "id": "15",
         "name": "Vault Haunter's Journal",
         "description": "A journal found in the vault, detailing the haunting experiences of its writer.",
         "location": "On top of a bench at the base of a small tower",
@@ -120,6 +135,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444681"
     },
     {
+        "id": "16",
         "name": "Preserved Diary",
         "description": "A diary that has been carefully preserved, offering a glimpse into the past.",
         "location": "On top of a crate at the base of a small tower",
@@ -128,6 +144,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444702"
     },
     {
+        "id": "17",
         "name": "Grimey Parchment",
         "description": "A parchment covered in grime, its text mostly illegible except for a few faint words.",
         "location": "On the second floor of the ruins on top of a crate above the furnace",
@@ -136,6 +153,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=444994"
     },
     {
+        "id": "18",
         "name": "Weathered Diary",
         "description": "A diary weathered by the elements, its pages brittle and fragile.",
         "location": "At the base of a cliff on top of a crate next to a skeleton",
@@ -144,6 +162,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445015"
     },
     {
+        "id": "19",
         "name": "Cathan's Journal [Ghornfell]",
         "description": "A journal left by Cathan, detailing his experiences in Ghornfell.",
         "location": "On the main path under an archway next to a dead goblin's body",
@@ -152,6 +171,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445016"
     },
     {
+        "id": "20",
         "name": "Leaf-scented Page",
         "description": "A page from a journal, infused with the scent of leaves and nature.",
         "location": "In an alcove on a ledge at the bottom of a small cliff",
@@ -160,6 +180,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445040"
     },
     {
+        "id": "21",
         "name": "Forgotten Diary",
         "description": "A diary long forgotten, its contents lost to time.",
         "location": "On top of a crate in a small ruin at the top of a staircase",
@@ -168,6 +189,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445103"
     },
     {
+        "id": "22",
         "name": "Duke's Diary",
         "description": "A diary belonging to a duke, containing noble musings and forgotten secrets.",
         "location": "On the second floor of the fort on a crate outside",
@@ -176,6 +198,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445137"
     },
     {
+        "id": "23",
         "name": "Dragonkin Notebook Page",
         "description": "A page from a notebook filled with notes about Dragonkin.",
         "location": "On top of a large stone brick next to a ruined wall and a campfire",
@@ -184,6 +207,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445197"
     },
     {
+        "id": "24",
         "name": "Elder's Storybook Page",
         "description": "A page torn from an elder's storybook, filled with ancient tales.",
         "location": "On a bench next to a tent",
@@ -192,6 +216,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445236"
     },
     {
+        "id": "25",
         "name": "Leathery Parchment",
         "description": "A piece of leather-bound parchment with writings from an old soul.",
         "location": "On top of a rock next to a small bone fence",
@@ -200,6 +225,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445452"
     },
     {
+        "id": "26",
         "name": "Ritual of Purification",
         "description": "A parchment detailing an ancient ritual, possibly linked to the Garou.",
         "location": "On top of a crate against a large bone segment in a camp",
@@ -208,6 +234,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445453"
     },
     {
+        "id": "27",
         "name": "Dragonkin Diary Page",
         "description": "A page from a Dragonkin's diary, written in a strange script.",
         "location": "On top of a rock in the middle of the main section of the stronghold",
@@ -216,6 +243,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445460"
     },
     {
+        "id": "28",
         "name": "Bloodstained Page",
         "description": "A page covered in bloodstains, perhaps linked to a tragic event.",
         "location": "On the ground next to a torch and some crates",
@@ -224,6 +252,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445609"
     },
     {
+        "id": "29",
         "name": "Scorched Journal",
         "description": "A journal partially scorched by fire, with bits of burned text remaining.",
         "location": "On top of a crate at the base of a small cliff",
@@ -232,6 +261,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=445962"
     },
     {
+        "id": "30",
         "name": "Garou Writings",
         "description": "Ancient writings from the Garou, offering cryptic messages and knowledge.",
         "location": "On a rock inside a small camp in the open",
@@ -240,6 +270,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=446121"
     },
     {
+        "id": "31",
         "name": "Dust-covered Diary",
         "description": "A dusty diary found in a corner of a temple, its pages fragile and crumbling.",
         "location": "Inside the temple in a corner on top of a crate next to the statue",
@@ -248,6 +279,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=446934"
     },
     {
+        "id": "32",
         "name": "Dragonkin Journal Page",
         "description": "A journal page from a Dragonkin's chronicles, documenting their ancient history.",
         "location": "On top of a large stone that makes up a stone arch",
@@ -256,6 +288,7 @@
         "webLink": "https://mapgenie.io/runescape-dragonwilds/maps/ashenfall?locationIds=447202"
     },
     {
+        "id": "33",
         "name": "Infused Journal",
         "description": "A journal infused with magical energy, its contents important for rituals.",
         "location": "On a fallen brick next to a Chest",

@@ -7,6 +7,7 @@ part of 'collectibles.dart';
 // **************************************************************************
 
 _Collectible _$CollectibleFromJson(Map<String, dynamic> json) => _Collectible(
+      id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String?,
       image: json['image'] as String?,
@@ -22,6 +23,7 @@ _Collectible _$CollectibleFromJson(Map<String, dynamic> json) => _Collectible(
 
 Map<String, dynamic> _$CollectibleToJson(_Collectible instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'image': instance.image,

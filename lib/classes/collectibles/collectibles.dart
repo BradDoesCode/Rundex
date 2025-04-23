@@ -51,6 +51,7 @@ extension CollectionExtension on Collection {
 @freezed
 sealed class Collectible with _$Collectible {
   factory Collectible({
+    required String id,
     required String name,
     String? description,
     String? image,
