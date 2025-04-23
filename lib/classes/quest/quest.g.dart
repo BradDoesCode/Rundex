@@ -7,6 +7,7 @@ part of 'quest.dart';
 // **************************************************************************
 
 _Quest _$QuestFromJson(Map<String, dynamic> json) => _Quest(
+      id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String?,
       image: json['image'] as String?,
@@ -22,6 +23,7 @@ _Quest _$QuestFromJson(Map<String, dynamic> json) => _Quest(
     );
 
 Map<String, dynamic> _$QuestToJson(_Quest instance) => <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'image': instance.image,

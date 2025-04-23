@@ -10,6 +10,7 @@ enum QuestType {
 @freezed
 sealed class Quest with _$Quest {
   factory Quest({
+    required String id,
     required String name,
     String? description,
     String? image,

@@ -1,5 +1,6 @@
 [
     {
+        "id": "1",
         "name": "Restless Ghosts",
         "description": "Restless Ghosts is a curious nighttime quest that starts near the old ruins by the Wise Old Man. With a special item in hand, you’ll explore Bramblemead Valley in search of a few elusive figures. Strange things happen when the sun goes down—so keep your eyes open, and your mind sharp.",
         "region": "Bramblemead Valley",
@@ -11,32 +12,39 @@
         ],
         "steps": [
             {
+                "id": "1a",
                 "name": "Crumbling Well",
                 "description": "Start the quest by interacting with the Crumbling Well. You will receive a Ghostspeak Amulet that lets you communicate with spirits."
             },
             {
+                "id": "1b",
                 "name": "Find Warren's Ghost",
                 "description": "Located in the ruined town where you begin the quest."
             },
             {
+                "id": "1c",
                 "name": "Find Finn's Spirit",
                 "description": "Found behind broken vines inside a cave southeast of the Wise Old Man. Windstep is required. Be cautious of a deep pit that is fatal if fallen into."
             },
             {
+                "id": "1d",
                 "name": "Find Lazina's Spirit",
                 "description": "Located in a broken house just before the windmill in Temple Woods."
             },
             {
+                "id": "1e",
                 "name": "Find Kay's Spirit",
                 "description": "Located in a ruined house along the southwest wall, east of the abyssal demon in the Whispering Swamp."
             },
             {
+                "id": "1f",
                 "name": "Finish the Quest",
                 "description": "Return to the church where you spawned and go outside. On the northwest side, interact with a large statue-like flower pot to complete the quest after recalling the ghosts."
             }
         ]
     },
     {
+        "id": "2",
         "name": "Dog Days",
         "description": "Dog Days is a quest given by Vannaka in the Stormtouched Highlands. You'll investigate strange Garou rituals and uncover their deeper purpose as you venture through dangerous terrain and ancient shrines.",
         "rewards":[
@@ -44,28 +52,34 @@
         ],
         "steps": [
             {
+                "id": "2a",
                 "name": "Talk to Vannaka",
                 "description": "Find Vannaka standing under a cliff in the eastern Highlands. He will brief you on the Garou and ask you to look into their rituals."
             },
             {
+                "id": "2b",
                 "name": "Read the Lore Book",
                 "description": "Travel to the wyrm corpse and read the Lore Book nearby. Approach from the north to avoid enemies. A Garou Thane is near the book but facing away."
             },
             {
+                "id": "2c",
                 "name": "Challenge the King",
                 "description": "Head to the Garou castle in the northwest Highlands. Use Windstep to avoid enemies. Defeat the Garou King at the top of the castle and claim his token."
             },
             {
+                "id": "2d",
                 "name": "Ritual of Purification",
                 "description": "Return to Vannaka with the token. Then head to Lougrim’s Shrine, defeat the Garou Druids, and gather materials (2 Ram Horns and 3 Shock Bulbs) to purify the token."
             },
             {
+                "id": "2e",
                 "name": "Complete the Quest",
                 "description": "Perform the ritual at the shrine and return to Vannaka to finish the quest."
             }
         ]
     },
     {
+        "id": "3",
         "name": "Highlighting the Problem",
         "description": "This quest begins in the Runecrafting Guild in Bramblemead Valley. A mysterious statue holds a secret that requires a bit of clever exploration, light puzzle-solving, and some rooftop acrobatics to uncover.",
         "rewards": [
@@ -73,28 +87,34 @@
         ],
         "steps": [
             {
+                "id": "3a",
                 "name": "Examine the Statue",
                 "description": "Find the wizard statue in the Runecrafting Guild atop the cliffs north of Temple Woods. It requires a password to activate."
             },
             {
+                "id": "3b",
                 "name": "Retrieve the Password",
                 "description": "Travel to the vault at the base of the cliffs. Use Windstep to reach a hidden path near three giant rats, where a glowing blue statue reveals the password: Pthentorok."
             },
             {
+                "id": "3c",
                 "name": "Receive the Orb",
                 "description": "Return to the statue and say the password. You’ll receive a Mysterious Orb (Uncharged)."
             },
             {
+                "id": "3d",
                 "name": "Charge the Orb",
                 "description": "Use Windstep to reach three pedestals on towers surrounding the guild. Interact with each pedestal to charge the orb."
             },
             {
+                "id": "3e",
                 "name": "Finish the Quest",
                 "description": "Return to the main statue with the charged orb. It will give you the recipe for the Staff of Light."
             }
         ]
     },
     {
+        "id": "4",
         "name": "Granite Mauled",
         "description": "Granite Mauled is a relic-hunting quest that takes place in the rugged terrain of the Fractured Plains. Doric needs your help investigating ancient ruins and unlocking the secrets hidden within Ashien's Watch.",
         "rewards": [
@@ -102,28 +122,34 @@
         ],
         "steps": [
             {
+                "id": "4a",
                 "name": "Talk to Doric",
                 "description": "Find Doric on a lookout south of Ashien's Watch, near a broken bridge. He will explain the importance of the ruins and request your help."
             },
             {
+                "id": "4b",
                 "name": "Activate the Statues",
                 "description": "Explore Ashien's Watch and locate all four statues scattered throughout the area. Activate each one to unlock the vault."
             },
             {
+                "id": "4c",
                 "name": "Enter the Vault",
                 "description": "With all statues activated, enter the vault. Prepare for battle as you will face two bosses guarding the secrets inside."
             },
             {
+                "id": "4d",
                 "name": "Recover the Blueprint",
                 "description": "After defeating the bosses, interact with the final statue to receive a mysterious blueprint."
             },
             {
+                "id": "4e",
                 "name": "Return to Doric",
                 "description": "Bring the blueprint back to Doric so he can translate its contents. This will conclude the quest."
             }
         ]
     },
     {
+        "id": "5",
         "name": "Goblin Diplomacy",
         "description": "Goblin Diplomacy is a side quest that begins once you discover one of the two Bandosian Amulets. This quest involves exploration, combat, and negotiation with goblins to prevent a dark prophecy. A stylish cape awaits those who see it through.",
         "rewards": [
@@ -131,28 +157,34 @@
         ],
         "steps": [
             {
+                "id": "5a",
                 "name": "Find the First Amulet",
                 "description": "Head southwest of Bramblemead Valley to the goblin-infested ruins. Clear out the enemies, descend the staircase, cut through the thorny vines, and retrieve the Bandosian Amulet from the Reliquary."
             },
             {
+                "id": "5b",
                 "name": "Speak with Zanik",
                 "description": "After finding the first amulet, travel to the ridge northeast of Bramblemead Valley. There, you'll find Zanik. She will tell you more about the amulet and ask you to find the second one."
             },
             {
+                "id": "5c",
                 "name": "Investigate the Second Ruin",
                 "description": "Go northeast of Zanik’s location to another goblin-infested ruin. Defeat the goblins near a caged goblin. Speak to the caged goblin to learn the second amulet’s location."
             },
             {
+                "id": "5d",
                 "name": "Find the Garou Druid",
                 "description": "Travel to the cave at the bottom of the Whispering Swamp. Enter carefully and defeat the Garou Druid inside to obtain the second Bandosian Amulet. Magic attacks and poison resistance are advised."
             },
             {
+                "id": "5e",
                 "name": "Return to Zanik",
                 "description": "Bring both amulets back to Zanik to complete the quest and receive your reward."
             }
         ]
     },
     {
+        "id": "6",
         "name": "Heart Strings",
         "description": "Heart Strings is a secondary quest that follows the poignant story of an unnamed Elf mourning their late human partner. The quest involves finding Memorial Gravestones next to unique trees with blue leaves scattered throughout the Fractured Plains.",
         "rewards": [
@@ -161,22 +193,25 @@
         ],
         "steps": [
             {
+                "id": "6a",
                 "name": "Start the Quest",
                 "description": "Begin the quest by interacting with the glowing blue Memorial Gravestone next to a unique tree with blue leaves located in the Fractured Plains."
             },
             {
+                "id": "6b",
                 "name": "Find the First Tree",
                 "description": "After starting the quest, head eastward to locate the next Memorial Gravestone near another unique blue-leafed tree."
             },
             {
+                "id": "6c",
                 "name": "Combat in the Fractured Plains",
                 "description": "As you progress through the open area of the Fractured Plains, be prepared to encounter Wolves and Garou. Combat may be necessary as you make your way to the next gravestones."
             },
             {
+                "id": "6d",
                 "name": "Reach the Final Tree",
                 "description": "Continue following the gravestones and trees until you reach the final one. Once there, sing the song to complete the quest."
             }
         ]
     }
-
 ]

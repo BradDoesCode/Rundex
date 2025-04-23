@@ -15,6 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$Quest {
+  String get id;
   String get name;
   String? get description;
   String? get image;
@@ -40,6 +41,7 @@ mixin _$Quest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Quest &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -57,6 +59,7 @@ mixin _$Quest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       name,
       description,
       image,
@@ -69,7 +72,7 @@ mixin _$Quest {
 
   @override
   String toString() {
-    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps)';
+    return 'Quest(id: $id, name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps)';
   }
 }
 
@@ -79,7 +82,8 @@ abstract mixin class $QuestCopyWith<$Res> {
       _$QuestCopyWithImpl;
   @useResult
   $Res call(
-      {String name,
+      {String id,
+      String name,
       String? description,
       String? image,
       QuestType? type,
@@ -102,6 +106,7 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? description = freezed,
     Object? image = freezed,
@@ -113,6 +118,10 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
     Object? steps = freezed,
   }) {
     return _then(_self.copyWith(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -157,7 +166,8 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
 @JsonSerializable()
 class _Quest implements Quest {
   _Quest(
-      {required this.name,
+      {required this.id,
+      required this.name,
       this.description,
       this.image,
       this.type,
@@ -170,6 +180,8 @@ class _Quest implements Quest {
         _steps = steps;
   factory _Quest.fromJson(Map<String, dynamic> json) => _$QuestFromJson(json);
 
+  @override
+  final String id;
   @override
   final String name;
   @override
@@ -224,6 +236,7 @@ class _Quest implements Quest {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Quest &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -241,6 +254,7 @@ class _Quest implements Quest {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       name,
       description,
       image,
@@ -253,7 +267,7 @@ class _Quest implements Quest {
 
   @override
   String toString() {
-    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps)';
+    return 'Quest(id: $id, name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps)';
   }
 }
 
@@ -264,7 +278,8 @@ abstract mixin class _$QuestCopyWith<$Res> implements $QuestCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
+      {String id,
+      String name,
       String? description,
       String? image,
       QuestType? type,
@@ -287,6 +302,7 @@ class __$QuestCopyWithImpl<$Res> implements _$QuestCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? description = freezed,
     Object? image = freezed,
@@ -298,6 +314,10 @@ class __$QuestCopyWithImpl<$Res> implements _$QuestCopyWith<$Res> {
     Object? steps = freezed,
   }) {
     return _then(_Quest(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
