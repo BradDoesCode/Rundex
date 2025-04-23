@@ -1,7 +1,6 @@
 import 'package:dragonwilds_companion/classes/progression_sections/progression_sections.dart';
 import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
-import 'package:dragonwilds_companion/theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
