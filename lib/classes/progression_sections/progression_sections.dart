@@ -8,7 +8,7 @@ extension ProgressionSectionsExtension on ProgressionSections {
       case ProgressionSections.mainQuest:
         return 'Main Quests';
       case ProgressionSections.sideQuest:
-        return 'Side Quest';
+        return 'Side Quests';
       case ProgressionSections.lore:
         return 'Lore';
     }
@@ -17,19 +17,22 @@ extension ProgressionSectionsExtension on ProgressionSections {
   Widget get image {
     switch (this) {
       case ProgressionSections.mainQuest:
-        return Icon(
-          Icons.crisis_alert,
-          size: 100,
+        return Image(
+          image: AssetImage('assets/wizard.png'),
+          fit: BoxFit.cover,
+          height: double.infinity,
         );
       case ProgressionSections.sideQuest:
-        return Icon(
-          Icons.crisis_alert,
-          size: 100,
+        return Image(
+          image: AssetImage('assets/stone.png'),
+          fit: BoxFit.cover,
+          height: double.infinity,
         );
       case ProgressionSections.lore:
-        return Icon(
-          Icons.crisis_alert,
-          size: 100,
+        return Image(
+          image: AssetImage('assets/lore.png'),
+          fit: BoxFit.cover,
+          height: double.infinity,
         );
     }
   }

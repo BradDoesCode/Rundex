@@ -17,7 +17,6 @@ _Collectable _$CollectableFromJson(Map<String, dynamic> json) => _Collectable(
       location: json['location'] as String?,
       region: json['region'] as String?,
       world: json['world'] as String?,
-      completed: json['completed'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$CollectableToJson(_Collectable instance) =>
@@ -30,7 +29,6 @@ Map<String, dynamic> _$CollectableToJson(_Collectable instance) =>
       'location': instance.location,
       'region': instance.region,
       'world': instance.world,
-      'completed': instance.completed,
     };
 
 const _$CollectableTypeEnumMap = {

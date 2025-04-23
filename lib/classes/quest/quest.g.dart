@@ -19,7 +19,6 @@ _Quest _$QuestFromJson(Map<String, dynamic> json) => _Quest(
       steps: (json['steps'] as List<dynamic>?)
           ?.map((e) => Quest.fromJson(e as Map<String, dynamic>))
           .toList(),
-      completed: json['completed'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$QuestToJson(_Quest instance) => <String, dynamic>{
@@ -32,7 +31,6 @@ Map<String, dynamic> _$QuestToJson(_Quest instance) => <String, dynamic>{
       'world': instance.world,
       'rewards': instance.rewards,
       'steps': instance.steps,
-      'completed': instance.completed,
     };
 
 const _$QuestTypeEnumMap = {

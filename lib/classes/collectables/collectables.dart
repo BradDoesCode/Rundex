@@ -59,7 +59,6 @@ sealed class Collectable with _$Collectable {
     String? location,
     String? region,
     String? world,
-    @Default(false) bool completed,
   }) = _Collectable;
 
   factory Collectable.fromJson(Map<String, dynamic> json) =>

@@ -19,7 +19,6 @@ sealed class Quest with _$Quest {
     String? world,
     List<String>? rewards,
     List<Quest>? steps,
-    @Default(false) bool completed,
   }) = _Quest;
 
   factory Quest.fromJson(Map<String, dynamic> json) => _$QuestFromJson(json);

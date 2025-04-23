@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Dragon Slayer",
+        "description": "Dragon Slayer is the main quest for Runescape:Dragonwilds. All locations for this quest will be marked on your map with a beige circle.",
+        "rewards": [
+            "Tome of the Dragon Slayer",
+            "Dragon Visage",
+            "Anti-Dragon Shield"
+        ],
+        "steps": [
+            {
+                "name": "To Slay Dragons!",
+                "description": "Speak to the Wise Old Man in the church (or in Bramblemead Valley) to begin. Bring him antlers from deer in the valley. He will cast a locator spell to find young Cathan, pointing you to a nearby castle."
+            },
+            {
+                "name": "The Castle and the Journal",
+                "description": "Travel to the castle in the valley, similar to Lumbridge Castle but with Bandosian banners. Fight goblins and find Cathan's Journal at the top next to a loot chest. Read the journal to learn about a 'blue-flame door' in the Whispering Swamp."
+            },
+            {
+                "name": "Through the Blue-Flame Door",
+                "description": "Go through the Vault and speak to Spitfoot. Learn about Cathan’s betrayal and his journey to Ghornfell. Return to the Wise Old Man in Bramblemead Valley with this information. He will task you with continuing into Ghornfell."
+            },
+            {
+                "name": "Tracking in Ghornfell",
+                "description": "Enter the Fractured Plains (Ghornfell) and investigate Velgar’s tower. You’ll find Cathan’s ghost who recounts his death at Velgar’s hands and gives you a recipe for a Challenge Horn."
+            },
+            {
+                "name": "Defeat Velgar",
+                "description": "Craft the Challenge Horn and use it to confront and defeat Velgar in his tower. Return to the Wise Old Man to complete the quest."
+            }
+        ]
+    }
+]

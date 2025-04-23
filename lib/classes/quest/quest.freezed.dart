@@ -24,7 +24,6 @@ mixin _$Quest {
   String? get world;
   List<String>? get rewards;
   List<Quest>? get steps;
-  bool get completed;
 
   /// Create a copy of Quest
   /// with the given fields replaced by the non-null parameter values.
@@ -51,9 +50,7 @@ mixin _$Quest {
             (identical(other.region, region) || other.region == region) &&
             (identical(other.world, world) || other.world == world) &&
             const DeepCollectionEquality().equals(other.rewards, rewards) &&
-            const DeepCollectionEquality().equals(other.steps, steps) &&
-            (identical(other.completed, completed) ||
-                other.completed == completed));
+            const DeepCollectionEquality().equals(other.steps, steps));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -68,12 +65,11 @@ mixin _$Quest {
       region,
       world,
       const DeepCollectionEquality().hash(rewards),
-      const DeepCollectionEquality().hash(steps),
-      completed);
+      const DeepCollectionEquality().hash(steps));
 
   @override
   String toString() {
-    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps, completed: $completed)';
+    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps)';
   }
 }
 
@@ -91,8 +87,7 @@ abstract mixin class $QuestCopyWith<$Res> {
       String? region,
       String? world,
       List<String>? rewards,
-      List<Quest>? steps,
-      bool completed});
+      List<Quest>? steps});
 }
 
 /// @nodoc
@@ -116,7 +111,6 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
     Object? world = freezed,
     Object? rewards = freezed,
     Object? steps = freezed,
-    Object? completed = null,
   }) {
     return _then(_self.copyWith(
       name: null == name
@@ -155,10 +149,6 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
           ? _self.steps
           : steps // ignore: cast_nullable_to_non_nullable
               as List<Quest>?,
-      completed: null == completed
-          ? _self.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -175,8 +165,7 @@ class _Quest implements Quest {
       this.region,
       this.world,
       final List<String>? rewards,
-      final List<Quest>? steps,
-      this.completed = false})
+      final List<Quest>? steps})
       : _rewards = rewards,
         _steps = steps;
   factory _Quest.fromJson(Map<String, dynamic> json) => _$QuestFromJson(json);
@@ -215,10 +204,6 @@ class _Quest implements Quest {
     return EqualUnmodifiableListView(value);
   }
 
-  @override
-  @JsonKey()
-  final bool completed;
-
   /// Create a copy of Quest
   /// with the given fields replaced by the non-null parameter values.
   @override
@@ -249,9 +234,7 @@ class _Quest implements Quest {
             (identical(other.region, region) || other.region == region) &&
             (identical(other.world, world) || other.world == world) &&
             const DeepCollectionEquality().equals(other._rewards, _rewards) &&
-            const DeepCollectionEquality().equals(other._steps, _steps) &&
-            (identical(other.completed, completed) ||
-                other.completed == completed));
+            const DeepCollectionEquality().equals(other._steps, _steps));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -266,12 +249,11 @@ class _Quest implements Quest {
       region,
       world,
       const DeepCollectionEquality().hash(_rewards),
-      const DeepCollectionEquality().hash(_steps),
-      completed);
+      const DeepCollectionEquality().hash(_steps));
 
   @override
   String toString() {
-    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps, completed: $completed)';
+    return 'Quest(name: $name, description: $description, image: $image, type: $type, location: $location, region: $region, world: $world, rewards: $rewards, steps: $steps)';
   }
 }
 
@@ -290,8 +272,7 @@ abstract mixin class _$QuestCopyWith<$Res> implements $QuestCopyWith<$Res> {
       String? region,
       String? world,
       List<String>? rewards,
-      List<Quest>? steps,
-      bool completed});
+      List<Quest>? steps});
 }
 
 /// @nodoc
@@ -315,7 +296,6 @@ class __$QuestCopyWithImpl<$Res> implements _$QuestCopyWith<$Res> {
     Object? world = freezed,
     Object? rewards = freezed,
     Object? steps = freezed,
-    Object? completed = null,
   }) {
     return _then(_Quest(
       name: null == name
@@ -354,10 +334,6 @@ class __$QuestCopyWithImpl<$Res> implements _$QuestCopyWith<$Res> {
           ? _self._steps
           : steps // ignore: cast_nullable_to_non_nullable
               as List<Quest>?,
-      completed: null == completed
-          ? _self.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }

@@ -23,7 +23,6 @@ mixin _$Collectable {
   String? get location;
   String? get region;
   String? get world;
-  bool get completed;
 
   /// Create a copy of Collectable
   /// with the given fields replaced by the non-null parameter values.
@@ -50,19 +49,17 @@ mixin _$Collectable {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.region, region) || other.region == region) &&
-            (identical(other.world, world) || other.world == world) &&
-            (identical(other.completed, completed) ||
-                other.completed == completed));
+            (identical(other.world, world) || other.world == world));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, image, type,
-      collection, location, region, world, completed);
+      collection, location, region, world);
 
   @override
   String toString() {
-    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, world: $world, completed: $completed)';
+    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, world: $world)';
   }
 }
 
@@ -80,8 +77,7 @@ abstract mixin class $CollectableCopyWith<$Res> {
       Collection collection,
       String? location,
       String? region,
-      String? world,
-      bool completed});
+      String? world});
 }
 
 /// @nodoc
@@ -104,7 +100,6 @@ class _$CollectableCopyWithImpl<$Res> implements $CollectableCopyWith<$Res> {
     Object? location = freezed,
     Object? region = freezed,
     Object? world = freezed,
-    Object? completed = null,
   }) {
     return _then(_self.copyWith(
       name: null == name
@@ -139,10 +134,6 @@ class _$CollectableCopyWithImpl<$Res> implements $CollectableCopyWith<$Res> {
           ? _self.world
           : world // ignore: cast_nullable_to_non_nullable
               as String?,
-      completed: null == completed
-          ? _self.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -158,8 +149,7 @@ class _Collectable implements Collectable {
       this.collection = Collection.none,
       this.location,
       this.region,
-      this.world,
-      this.completed = false});
+      this.world});
   factory _Collectable.fromJson(Map<String, dynamic> json) =>
       _$CollectableFromJson(json);
 
@@ -180,9 +170,6 @@ class _Collectable implements Collectable {
   final String? region;
   @override
   final String? world;
-  @override
-  @JsonKey()
-  final bool completed;
 
   /// Create a copy of Collectable
   /// with the given fields replaced by the non-null parameter values.
@@ -214,19 +201,17 @@ class _Collectable implements Collectable {
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.region, region) || other.region == region) &&
-            (identical(other.world, world) || other.world == world) &&
-            (identical(other.completed, completed) ||
-                other.completed == completed));
+            (identical(other.world, world) || other.world == world));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, image, type,
-      collection, location, region, world, completed);
+      collection, location, region, world);
 
   @override
   String toString() {
-    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, world: $world, completed: $completed)';
+    return 'Collectable(name: $name, description: $description, image: $image, type: $type, collection: $collection, location: $location, region: $region, world: $world)';
   }
 }
 
@@ -246,8 +231,7 @@ abstract mixin class _$CollectableCopyWith<$Res>
       Collection collection,
       String? location,
       String? region,
-      String? world,
-      bool completed});
+      String? world});
 }
 
 /// @nodoc
@@ -270,7 +254,6 @@ class __$CollectableCopyWithImpl<$Res> implements _$CollectableCopyWith<$Res> {
     Object? location = freezed,
     Object? region = freezed,
     Object? world = freezed,
-    Object? completed = null,
   }) {
     return _then(_Collectable(
       name: null == name
@@ -305,10 +288,6 @@ class __$CollectableCopyWithImpl<$Res> implements _$CollectableCopyWith<$Res> {
           ? _self.world
           : world // ignore: cast_nullable_to_non_nullable
               as String?,
-      completed: null == completed
-          ? _self.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
