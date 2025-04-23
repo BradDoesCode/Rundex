@@ -68,11 +68,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/quest.webp
     - assets/wizard.png
     - assets/stone.png
     - assets/lore.png
     - assets/data/quests/main_quests.json
+    - assets/data/quests/side_quests.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

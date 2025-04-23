@@ -1,3 +1,4 @@
+import 'package:dragonwilds_companion/screens/quest_list_screen.dart';
 import 'package:flutter/material.dart';
 
 enum ProgressionSections { mainQuest, sideQuest, lore }
@@ -45,6 +46,23 @@ extension ProgressionSectionsExtension on ProgressionSections {
         return '0% Complete';
       case ProgressionSections.lore:
         return '0% Complete';
+    }
+  }
+
+  Widget get screen {
+    switch (this) {
+      case ProgressionSections.mainQuest:
+        return QuestListScreen(
+          type: 'main',
+          title: ProgressionSections.mainQuest.title,
+        );
+      case ProgressionSections.sideQuest:
+        return QuestListScreen(
+          type: 'side',
+          title: ProgressionSections.sideQuest.title,
+        );
+      case ProgressionSections.lore:
+        return const Text('Lore Screen');
     }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:dragonwilds_companion/classes/progression_sections/progression_sections.dart';
-import 'package:dragonwilds_companion/screens/main_quests_screen.dart';
 import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +21,11 @@ class HomeScreen extends StatelessWidget {
             image: ProgressionSections.values[index].image,
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MainQuestsScreen()));
+                MaterialPageRoute(
+                  builder: (context) =>
+                      ProgressionSections.values[index].screen,
+                ),
+              );
             },
           ),
         ),

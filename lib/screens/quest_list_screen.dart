@@ -1,22 +1,25 @@
-import 'dart:convert';
-
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/screens/quest_detail_screen.dart';
+import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-Future<List<Quest>> loadMainQuests() async {
-  final String jsonString =
-      await rootBundle.loadString('assets/data/quests/main_quests.json');
-  final List<dynamic> jsonData = json.decode(jsonString);
+Map<String, String> quests = {
+  'main': 'assets/data/quests/main_quests.json',
+  'side': 'assets/data/quests/side_quests.json',
+};
+
+Future<List<Quest>> loadMainQuests(type) async {
+  final jsonData = await loadJsonList(quests[type]!);
   return jsonData.map((quest) => Quest.fromJson(quest)).toList();
 }
 
-class MainQuestsScreen extends StatelessWidget {
-  const MainQuestsScreen({super.key});
-
+class QuestListScreen extends StatelessWidget {
+  const QuestListScreen({super.key, required this.type, required this.title});
+  // type can be 'main' or 'side'
+  final String type;
+  final String title;
   Future<List<Quest>> _fetchQuests() async {
-    return await loadMainQuests();
+    return await loadMainQuests(type);
   }
 
   @override
@@ -35,7 +38,7 @@ class MainQuestsScreen extends StatelessWidget {
 
           return Scaffold(
             appBar: AppBar(
-              title: Text('Main Quests'),
+              title: Text(title),
             ),
             body: ListView.builder(
               itemCount: quests.length,
