@@ -1,39 +1,41 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'collectables.dart';
+part of 'collectibles.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Collectable _$CollectableFromJson(Map<String, dynamic> json) => _Collectable(
+_Collectible _$CollectibleFromJson(Map<String, dynamic> json) => _Collectible(
       name: json['name'] as String,
       description: json['description'] as String?,
       image: json['image'] as String?,
-      type: $enumDecodeNullable(_$CollectableTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$CollectibleTypeEnumMap, json['type']),
       collection:
           $enumDecodeNullable(_$CollectionEnumMap, json['collection']) ??
               Collection.none,
       location: json['location'] as String?,
       region: json['region'] as String?,
       world: json['world'] as String?,
+      webLink: json['webLink'] as String?,
     );
 
-Map<String, dynamic> _$CollectableToJson(_Collectable instance) =>
+Map<String, dynamic> _$CollectibleToJson(_Collectible instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'image': instance.image,
-      'type': _$CollectableTypeEnumMap[instance.type],
+      'type': _$CollectibleTypeEnumMap[instance.type],
       'collection': _$CollectionEnumMap[instance.collection]!,
       'location': instance.location,
       'region': instance.region,
       'world': instance.world,
+      'webLink': instance.webLink,
     };
 
-const _$CollectableTypeEnumMap = {
-  CollectableType.book: 'book',
-  CollectableType.recipe: 'recipe',
+const _$CollectibleTypeEnumMap = {
+  CollectibleType.book: 'book',
+  CollectibleType.recipe: 'recipe',
 };
 
 const _$CollectionEnumMap = {

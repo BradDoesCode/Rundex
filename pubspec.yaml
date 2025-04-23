@@ -42,6 +42,8 @@ dependencies:
   freezed: ^3.0.6
   json_annotation: ^4.9.0
   url_launcher: ^6.3.1
+  
+
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,7 @@ flutter:
     - assets/lore.png
     - assets/data/quests/main_quests.json
     - assets/data/quests/side_quests.json
+    - assets/data/collectibles/lore_scraps.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -1,3 +1,4 @@
+import 'package:dragonwilds_companion/screens/lore_scraps_screen.dart';
 import 'package:dragonwilds_companion/screens/quest_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,7 @@ extension ProgressionSectionsExtension on ProgressionSections {
           title: ProgressionSections.sideQuest.title,
         );
       case ProgressionSections.lore:
-        return const Text('Lore Screen');
+        return LoreScrapsScreen();
     }
   }
 }

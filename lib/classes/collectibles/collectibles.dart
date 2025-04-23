@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'collectables.freezed.dart';
-part 'collectables.g.dart';
+part 'collectibles.freezed.dart';
+part 'collectibles.g.dart';
 
-enum CollectableType {
+enum CollectibleType {
   book,
   recipe,
 }
@@ -49,18 +49,19 @@ extension CollectionExtension on Collection {
 }
 
 @freezed
-sealed class Collectable with _$Collectable {
-  factory Collectable({
+sealed class Collectible with _$Collectible {
+  factory Collectible({
     required String name,
     String? description,
     String? image,
-    CollectableType? type,
+    CollectibleType? type,
     @Default(Collection.none) Collection collection,
     String? location,
     String? region,
     String? world,
-  }) = _Collectable;
+    String? webLink,
+  }) = _Collectible;
 
-  factory Collectable.fromJson(Map<String, dynamic> json) =>
-      _$CollectableFromJson(json);
+  factory Collectible.fromJson(Map<String, dynamic> json) =>
+      _$CollectibleFromJson(json);
 }
