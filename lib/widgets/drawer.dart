@@ -9,9 +9,9 @@ class DrawerMenu extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.deepPurple,
+              color: Theme.of(context).colorScheme.primary,
             ),
             child: Text(
               'Dragonwilds Companion',
