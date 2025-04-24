@@ -14,9 +14,12 @@ class CompletedItems extends _$CompletedItems {
   Future<void> addToCompletedItems(String id, CompletedItemType type) async {
     final prestate = await future;
     final List<String> completedItems = prestate[type.hiveKey] ?? [];
+    if (completedItems.contains(id)) {
+      return;
+    }
     state = AsyncData({
       ...prestate,
-      type.hiveKey: completedItems,
+      type.hiveKey: completedItems..add(id),
     });
   }
 
