@@ -28,12 +28,7 @@ class QuestDetailScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Row(
-                    children: [
-                      Expanded(
-                          child:
-                              Text(quest.steps?[index].name ?? 'Unnamed Step')),
-                      CheckBox(quest: quest)
-                    ],
+                    children: [Expanded(child: Text(quest.steps![index].name)), CheckBox(quest: quest.steps![index])],
                   ),
                   subtitle: SpoilerContainer(
                     child: Text(quest.steps?[index].description ?? ''),
