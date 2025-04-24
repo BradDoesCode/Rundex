@@ -6,7 +6,7 @@ part of 'completed_items.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$completedItemsHash() => r'f27f61458a438c21c02e27c984559898854ed9ae';
+String _$completedItemsHash() => r'ecda28eaa29e7d05ec500277b199706d2b8faf59';
 
 /// See also [CompletedItems].
 @ProviderFor(CompletedItems)

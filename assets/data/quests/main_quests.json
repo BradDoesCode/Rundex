@@ -12,7 +12,13 @@
             {
                 "id": "1a",
                 "name": "To Slay Dragons!",
-                "description": "Speak to the Wise Old Man in the church (or in Bramblemead Valley) to begin. Bring him antlers from deer in the valley. He will cast a locator spell to find young Cathan, pointing you to a nearby castle."
+                "description": "Speak to the Wise Old Man in the church (or in Bramblemead Valley) to begin. Bring him antlers from deer in the valley. He will cast a locator spell to find young Cathan, pointing you to a nearby castle.",
+                "steps": [
+                    {
+                        "id": "1aa",
+                        "name": "yanan"
+                    }
+                ]
             },
             {
                 "id": "1b",

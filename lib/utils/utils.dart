@@ -18,8 +18,7 @@ Future<List<dynamic>> loadJsonList(String filepath) async {
 }
 
 Future<void> addToCompletedItems(String id, CompletedItemType type) async {
-  final data =
-      await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox);
+  final data = await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox);
   final List<String> completedItems = data[type.hiveKey] ?? [];
   if (!completedItems.contains(id)) {
     completedItems.add(id);
@@ -32,8 +31,7 @@ Future<void> addToCompletedItems(String id, CompletedItemType type) async {
 }
 
 Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
-  final data =
-      await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox);
+  final data = await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox);
   final List<String> completedItems = data[type.hiveKey] ?? [];
   if (completedItems.contains(id)) {
     completedItems.remove(id);
@@ -45,16 +43,12 @@ Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
   }
 }
 
-//add all quests and steps to completed
 Future<void> addQuestsToComplete(Quest quest) async {
-  await addToCompletedItems(
-      quest.id,
-      (quest.type.toString() == 'main'
-          ? CompletedItemType.mainQuest
-          : CompletedItemType.sideQuest));
-  if (quest.steps != null) {
-    for (var step in quest.steps!) {
-      await addQuestsToComplete(step);
-    }
+  await addToCompletedItems(quest.id, quest.type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
+  if (quest.steps == null) {
+    return;
+  }
+  for (var q in quest.steps!) {
+    addQuestsToComplete(q);
   }
 }

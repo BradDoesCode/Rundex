@@ -164,7 +164,7 @@ class _$QuestCopyWithImpl<$Res> implements $QuestCopyWith<$Res> {
 
 /// @nodoc
 @JsonSerializable()
-class _Quest implements Quest {
+class _Quest extends Quest {
   _Quest(
       {required this.id,
       required this.name,
@@ -177,7 +177,8 @@ class _Quest implements Quest {
       final List<String>? rewards,
       final List<Quest>? steps})
       : _rewards = rewards,
-        _steps = steps;
+        _steps = steps,
+        super._();
   factory _Quest.fromJson(Map<String, dynamic> json) => _$QuestFromJson(json);
 
   @override

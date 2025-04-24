@@ -1,16 +1,25 @@
+import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/screens/quest_detail_screen.dart';
+import 'package:dragonwilds_companion/utils/hive.dart';
 import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Map<String, String> quests = {
   'main': 'assets/data/quests/main_quests.json',
   'side': 'assets/data/quests/side_quests.json',
 };
 
-Future<List<Quest>> loadMainQuests(type) async {
+Future<List<Quest>> loadMainQuests(String type) async {
   final jsonData = await loadJsonList(quests[type]!);
-  return jsonData.map((quest) => Quest.fromJson(quest)).toList();
+  final parentType = (type == 'main' ? QuestType.main : QuestType.side);
+
+  final loaded = jsonData.map((quest) {
+    return Quest.fromJson(quest).inheritType(parentType);
+  }).toList();
+
+  return loaded;
 }
 
 class QuestListScreen extends StatelessWidget {
@@ -35,7 +44,6 @@ class QuestListScreen extends StatelessWidget {
           return const Center(child: Text('No quests available.'));
         } else {
           final quests = snapshot.data!;
-
           return Scaffold(
             appBar: AppBar(
               title: Text(title),
@@ -49,6 +57,7 @@ class QuestListScreen extends StatelessWidget {
                 );
               },
             ),
+            bottomNavigationBar: ProviderList(),
           );
         }
       },
@@ -87,11 +96,34 @@ class QuestCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text('Mark quest as completed'),
-              Checkbox(value: false, onChanged: (value) {}),
+              Checkbox(
+                value: false,
+                onChanged: (value) {
+                  addQuestsToComplete(quest);
+                },
+              ),
             ],
           ),
         ],
       ),
+    );
+  }
+}
+
+class ProviderList extends ConsumerWidget {
+  const ProviderList({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    print('building');
+    Map<String, List<String>>? items = ref.watch(completedItemsProvider).value;
+    if (items?[HiveStorage.mainQuestKey] == null) {
+      return SizedBox();
+    }
+    return Row(
+      children: [
+        for (var s in items![HiveStorage.mainQuestKey]!) Text(s),
+      ],
     );
   }
 }

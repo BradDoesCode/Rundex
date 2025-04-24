@@ -25,9 +25,6 @@ class _CheckBoxState extends State<CheckBox> {
             });
             if (value!) {
               addQuestsToComplete(widget.quest);
-            } else 
-            {
-              
             }
           },
           activeColor: MaterialTheme(TextTheme()).light().colorScheme.primary,

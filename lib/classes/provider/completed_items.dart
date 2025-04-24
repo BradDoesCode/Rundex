@@ -7,8 +7,10 @@ part 'completed_items.g.dart';
 class CompletedItems extends _$CompletedItems {
   @override
   Future<Map<String, List<String>>> build() async {
-    return await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox)
-        as Map<String, List<String>>;
+    Map<String, List<String>> data =
+        (await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox)).cast<String, List<String>>();
+    print('data in riverpod $data');
+    return data;
   }
 
   Future<void> addToCompletedItems(String id, CompletedItemType type) async {
@@ -23,8 +25,7 @@ class CompletedItems extends _$CompletedItems {
     });
   }
 
-  Future<void> removeFromCompletedItems(
-      String id, CompletedItemType type) async {
+  Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
     final prestate = await future;
     final List<String> completedItems = prestate[type.hiveKey] ?? [];
     if (completedItems.contains(id)) {
