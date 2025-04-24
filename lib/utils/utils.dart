@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
+import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/utils/hive.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -44,6 +45,16 @@ Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
   }
 }
 
-
-
-
+//add all quests and steps to completed
+Future<void> addQuestsToComplete(Quest quest) async {
+  await addToCompletedItems(
+      quest.id,
+      (quest.type.toString() == 'main'
+          ? CompletedItemType.mainQuest
+          : CompletedItemType.sideQuest));
+  if (quest.steps != null) {
+    for (var step in quest.steps!) {
+      await addQuestsToComplete(step);
+    }
+  }
+}

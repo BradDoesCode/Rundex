@@ -1,9 +1,11 @@
+import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/theme.dart';
+import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class CheckBox extends StatefulWidget {
-  const CheckBox({super.key});
-
+  const CheckBox({super.key, required this.quest});
+  final Quest quest;
   @override
   State<CheckBox> createState() => _CheckBoxState();
 }
@@ -21,7 +23,12 @@ class _CheckBoxState extends State<CheckBox> {
             setState(() {
               isChecked = value ?? false;
             });
-            
+            if (value!) {
+              addQuestsToComplete(widget.quest);
+            } else 
+            {
+              
+            }
           },
           activeColor: MaterialTheme(TextTheme()).light().colorScheme.primary,
           checkColor: Theme.of(context).colorScheme.onPrimary,

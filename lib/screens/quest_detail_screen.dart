@@ -32,7 +32,7 @@ class QuestDetailScreen extends StatelessWidget {
                       Expanded(
                           child:
                               Text(quest.steps?[index].name ?? 'Unnamed Step')),
-                      CheckBox()
+                      CheckBox(quest: quest)
                     ],
                   ),
                   subtitle: SpoilerContainer(
