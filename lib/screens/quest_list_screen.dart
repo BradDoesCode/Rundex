@@ -44,20 +44,54 @@ class QuestListScreen extends StatelessWidget {
               itemCount: quests.length,
               itemBuilder: (context, index) {
                 final quest = quests[index];
-                return ListTile(
-                  title: Text(quest.name),
-                  subtitle: Text(quest.description ?? ''),
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              QuestDetailScreen(quest: quest))),
+                return QuestCard(
+                  quest: quest,
                 );
               },
             ),
           );
         }
       },
+    );
+  }
+}
+
+class QuestCard extends StatelessWidget {
+  const QuestCard({super.key, required this.quest});
+  final Quest quest;
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      child: Column(
+        children: [
+          ListTile(
+            title: Text(quest.name),
+            subtitle: Text(quest.description ?? ''),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => QuestDetailScreen(quest: quest),
+                ),
+              );
+            },
+          ),
+          if (quest.image != null)
+            Image.asset(
+              quest.image!,
+              fit: BoxFit.cover,
+            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text('Mark quest as completed'),
+              Checkbox(value: false, onChanged: (value) {}),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
