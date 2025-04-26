@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
+import 'package:dragonwilds_companion/classes/step/step.dart';
 import 'package:dragonwilds_companion/utils/hive.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> launchWeb(Uri url) async {
@@ -43,3 +45,22 @@ Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
   }
 }
 
+Future<bool> isQuestComplete(Quest quest, WidgetRef ref) async {
+  final completedItems = ref.read(completedItemsProvider).value;
+  if (completedItems == null) return false;
+  for (var step in quest.steps!) {
+    if (!completedItems[
+            (quest.type == QuestType.main) ? CompletedItemType.mainQuest.hiveKey : CompletedItemType.sideQuest.hiveKey]!
+        .contains(step.id)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+Future<bool> isStepComplete(Step step, QuestType type, WidgetRef ref) async {
+  final completedItems = ref.read(completedItemsProvider).value;
+  if (completedItems == null) return false;
+  return completedItems[(type == QuestType.main) ? CompletedItemType.mainQuest.hiveKey : CompletedItemType.sideQuest.hiveKey]!
+      .contains(step.id);
+}
