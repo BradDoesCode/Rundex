@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/classes/step/step.dart' as cs;
 import 'package:dragonwilds_companion/utils/utils.dart';
@@ -54,6 +55,7 @@ class StepContainer extends ConsumerStatefulWidget {
 class _StepContainerState extends ConsumerState<StepContainer> {
   @override
   Widget build(BuildContext context) {
+    ref.watch(completedItemsProvider);
     return FutureBuilder<bool>(
       future: isStepComplete(widget.step, widget.questType, ref), // Call the async function here
       builder: (context, snapshot) {

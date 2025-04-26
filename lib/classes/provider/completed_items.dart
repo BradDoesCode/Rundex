@@ -9,7 +9,6 @@ class CompletedItems extends _$CompletedItems {
   Future<Map<String, List<String>>> build() async {
     Map<String, List<String>> data =
         (await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox)).cast<String, List<String>>();
-    print('data in riverpod $data');
     return data;
   }
 
@@ -35,6 +34,12 @@ class CompletedItems extends _$CompletedItems {
         type.hiveKey: completedItems,
       });
     }
+  }
+
+  Future<void> clear() async {
+    await HiveStorage().clear(HiveStorage.mainQuestKey);
+    await HiveStorage().clear(HiveStorage.sideQuestKey);
+    state = const AsyncData({});
   }
 }
 
