@@ -19,7 +19,7 @@ Future<List<dynamic>> loadJsonList(String filepath) async {
   return json.decode(jsonString);
 }
 
-Future<void> addToCompletedItems(String id, CompletedItemType type) async {
+Future<void> addToHive(String id, CompletedItemType type) async {
   final data = await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox);
   final List<String> completedItems = data[type.hiveKey] ?? [];
   if (!completedItems.contains(id)) {
@@ -32,7 +32,7 @@ Future<void> addToCompletedItems(String id, CompletedItemType type) async {
   }
 }
 
-Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
+Future<void> removeFromHive(String id, CompletedItemType type) async {
   final data = await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox);
   final List<String> completedItems = data[type.hiveKey] ?? [];
   if (completedItems.contains(id)) {
@@ -65,10 +65,21 @@ Future<bool> isStepComplete(Step step, QuestType type, WidgetRef ref) async {
       .contains(step.id);
 }
 
-
 Future<void> saveStepsToCompletedItems(List<Step> steps, QuestType type, WidgetRef ref) async {
-  for (var step in steps) {  //provider already checks for already completed items
-      await addToCompletedItems(step.id, type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
-      ref.read(completedItemsProvider.notifier);
-    }
+  for (var step in steps) {
+    //provider already checks for already completed items
+    await addToHive(step.id, type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
+    ref
+        .read(completedItemsProvider.notifier)
+        .addToCompletedItems(step.id, type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
   }
+}
+
+Future<void> removeFromCompletedItems(List<Step> steps, QuestType type, WidgetRef ref) async {
+  for (var step in steps) {
+    await removeFromHive(step.id, type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
+    ref
+        .read(completedItemsProvider.notifier)
+        .removeFromCompletedItems(step.id, type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
+  }
+}

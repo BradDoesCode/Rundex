@@ -36,12 +36,6 @@ class CompletedItems extends _$CompletedItems {
       });
     }
   }
-
-  Future<bool> isCompleted(String id, CompletedItemType type) async {
-    final prestate = await future;
-    final List<String> completedItems = prestate[type.hiveKey] ?? [];
-    return completedItems.contains(id);
-  }
 }
 
 enum CompletedItemType {
