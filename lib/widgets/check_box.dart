@@ -9,10 +9,12 @@ class CheckBox extends ConsumerWidget {
   final Quest quest;
 
   Future<bool> isChecked(ref) async {
-    return false;
-    return await ref
-        .read(completedItemsProvider.notifier)
-        .isCompleted(quest.id, (quest.type == QuestType.main) ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
+    //return false;
+    return await ref.read(completedItemsProvider.notifier).isCompleted(
+        quest.id,
+        (quest.type == QuestType.main)
+            ? CompletedItemType.mainQuest
+            : CompletedItemType.sideQuest);
   }
 
   @override
@@ -38,7 +40,8 @@ class CheckBox extends ConsumerWidget {
 }
 
 class CustomCheckBox extends StatelessWidget {
-  const CustomCheckBox({super.key, required this.isChecked, required this.quest});
+  const CustomCheckBox(
+      {super.key, required this.isChecked, required this.quest});
   final bool isChecked;
   final Quest quest;
   @override

@@ -64,3 +64,11 @@ Future<bool> isStepComplete(Step step, QuestType type, WidgetRef ref) async {
   return completedItems[(type == QuestType.main) ? CompletedItemType.mainQuest.hiveKey : CompletedItemType.sideQuest.hiveKey]!
       .contains(step.id);
 }
+
+
+Future<void> saveStepsToCompletedItems(List<Step> steps, QuestType type, WidgetRef ref) async {
+  for (var step in steps) {  //provider already checks for already completed items
+      await addToCompletedItems(step.id, type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
+      ref.read(completedItemsProvider.notifier);
+    }
+  }

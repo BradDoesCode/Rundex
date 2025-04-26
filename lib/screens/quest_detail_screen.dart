@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
+import 'package:dragonwilds_companion/widgets/check_box.dart';
 import 'package:flutter/material.dart';
 
 class QuestDetailScreen extends StatelessWidget {
@@ -27,7 +28,10 @@ class QuestDetailScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Row(
-                    children: [Expanded(child: Text(quest.steps![index].name)), Placeholder()],
+                    children: [
+                      Expanded(child: Text(quest.steps![index].name)),
+                      //CustomCheckBox(isChecked: , quest: quest)
+                    ],
                   ),
                   subtitle: SpoilerContainer(
                     child: Text(quest.steps?[index].description ?? ''),
