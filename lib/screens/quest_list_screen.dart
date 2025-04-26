@@ -13,10 +13,9 @@ Map<String, String> quests = {
 
 Future<List<Quest>> loadMainQuests(String type) async {
   final jsonData = await loadJsonList(quests[type]!);
-  final parentType = (type == 'main' ? QuestType.main : QuestType.side);
-
+  final questType = type == 'main' ? QuestType.main : QuestType.side;
   final loaded = jsonData.map((quest) {
-    return Quest.fromJson(quest).inheritType(parentType);
+    return Quest.fromJson(quest).addType(questType);
   }).toList();
 
   return loaded;
@@ -99,7 +98,7 @@ class QuestCard extends StatelessWidget {
               Checkbox(
                 value: false,
                 onChanged: (value) {
-                  addQuestsToComplete(quest);
+                  //
                 },
               ),
             ],
@@ -115,7 +114,6 @@ class ProviderList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('building');
     Map<String, List<String>>? items = ref.watch(completedItemsProvider).value;
     if (items?[HiveStorage.mainQuestKey] == null) {
       return SizedBox();

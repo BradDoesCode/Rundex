@@ -1,3 +1,4 @@
+import 'package:dragonwilds_companion/classes/step/step.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'quest.freezed.dart';
@@ -18,15 +19,12 @@ sealed class Quest with _$Quest {
     String? region,
     String? world,
     List<String>? rewards,
-    List<Quest>? steps,
+    List<Step>? steps,
   }) = _Quest;
 
   factory Quest.fromJson(Map<String, dynamic> json) => _$QuestFromJson(json);
 
-  Quest inheritType(QuestType parentType) {
-    return copyWith(
-      type: type ?? parentType,
-      steps: steps?.map((step) => step.inheritType(parentType)).toList(),
-    );
+  Quest addType(QuestType type) {
+    return copyWith(type: type);
   }
 }

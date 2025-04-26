@@ -1,41 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'quest.dart';
+part of 'step.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Quest _$QuestFromJson(Map<String, dynamic> json) => _Quest(
+_Step _$StepFromJson(Map<String, dynamic> json) => _Step(
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String?,
       image: json['image'] as String?,
-      type: $enumDecodeNullable(_$QuestTypeEnumMap, json['type']),
       location: json['location'] as String?,
       region: json['region'] as String?,
       world: json['world'] as String?,
       rewards:
           (json['rewards'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      steps: (json['steps'] as List<dynamic>?)
-          ?.map((e) => Step.fromJson(e as Map<String, dynamic>))
-          .toList(),
     );
 
-Map<String, dynamic> _$QuestToJson(_Quest instance) => <String, dynamic>{
+Map<String, dynamic> _$StepToJson(_Step instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'image': instance.image,
-      'type': _$QuestTypeEnumMap[instance.type],
       'location': instance.location,
       'region': instance.region,
       'world': instance.world,
       'rewards': instance.rewards,
-      'steps': instance.steps,
     };
-
-const _$QuestTypeEnumMap = {
-  QuestType.main: 'main',
-  QuestType.side: 'side',
-};

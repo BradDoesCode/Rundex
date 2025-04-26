@@ -43,12 +43,3 @@ Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
   }
 }
 
-Future<void> addQuestsToComplete(Quest quest) async {
-  await addToCompletedItems(quest.id, quest.type == QuestType.main ? CompletedItemType.mainQuest : CompletedItemType.sideQuest);
-  if (quest.steps == null) {
-    return;
-  }
-  for (var q in quest.steps!) {
-    addQuestsToComplete(q);
-  }
-}
