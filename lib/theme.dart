@@ -1,6 +1,6 @@
 // ignore_for_file: use_full_hex_values_for_flutter_colors
-
 import "package:flutter/material.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 class MaterialTheme {
   final TextTheme textTheme;
@@ -361,76 +361,119 @@ class MaterialTheme {
     return theme(darkHighContrastScheme().toColorScheme());
   }
 
-
   ThemeData theme(ColorScheme colorScheme) => ThemeData(
-     useMaterial3: true,
-     brightness: colorScheme.brightness,
-     colorScheme: colorScheme,
-     textTheme: textTheme.apply(
-       bodyColor: colorScheme.onSurface,
-       displayColor: colorScheme.onSurface,
-     ),
-     scaffoldBackgroundColor: colorScheme.background,
-     canvasColor: colorScheme.surface,
-  );
+        useMaterial3: true,
+        brightness: colorScheme.brightness,
+        colorScheme: colorScheme,
+        textTheme: textTheme.copyWith(
+          displayLarge: GoogleFonts.imFellDwPicaSc(
+            fontSize: 34,
+            color: colorScheme.onSurface,
+          ),
+          displayMedium: GoogleFonts.imFellDwPicaSc(
+            fontSize: 30,
+            color: colorScheme.onSurface,
+          ),
+          displaySmall: GoogleFonts.imFellDwPicaSc(
+            fontSize: 26,
+            color: colorScheme.onSurface,
+          ),
+          headlineLarge: GoogleFonts.imFellDwPicaSc(
+            fontSize: 28,
+            color: colorScheme.onSurface,
+          ),
+          headlineMedium: GoogleFonts.imFellDwPicaSc(
+            fontSize: 24,
+            color: colorScheme.onSurface,
+          ),
+          headlineSmall: GoogleFonts.imFellDwPicaSc(
+            fontSize: 20,
+            color: colorScheme.onSurface,
+          ),
+          titleLarge: GoogleFonts.mateSc(
+            fontSize: 24,
+            color: colorScheme.onSurface,
+          ),
+          titleMedium: GoogleFonts.mateSc(
+            fontSize: 20,
+            color: colorScheme.onSurface,
+          ),
+          titleSmall: GoogleFonts.mateSc(
+            fontSize: 16,
+            color: colorScheme.onSurface,
+          ),
+          bodyLarge: GoogleFonts.cormorantGaramond(
+            fontSize: 16,
+            color: colorScheme.onSurface,
+          ),
+          bodyMedium: GoogleFonts.cormorantGaramond(
+            fontSize: 14,
+            color: colorScheme.onSurface,
+          ),
+          bodySmall: GoogleFonts.cormorantGaramond(
+            fontSize: 12,
+            color: colorScheme.onSurface,
+          ),
+        ),
+        scaffoldBackgroundColor: colorScheme.surface,
+        canvasColor: colorScheme.surface,
+      );
 
-
-  List<ExtendedColor> get extendedColors => [
-  ];
+  List<ExtendedColor> get extendedColors => [];
 }
 
 class MaterialScheme {
   const MaterialScheme({
     required this.brightness,
-    required this.primary, 
-    required this.surfaceTint, 
-    required this.onPrimary, 
-    required this.primaryContainer, 
-    required this.onPrimaryContainer, 
-    required this.secondary, 
-    required this.onSecondary, 
-    required this.secondaryContainer, 
-    required this.onSecondaryContainer, 
-    required this.tertiary, 
-    required this.onTertiary, 
-    required this.tertiaryContainer, 
-    required this.onTertiaryContainer, 
-    required this.error, 
-    required this.onError, 
-    required this.errorContainer, 
-    required this.onErrorContainer, 
-    required this.background, 
-    required this.onBackground, 
-    required this.surface, 
-    required this.onSurface, 
-    required this.surfaceVariant, 
-    required this.onSurfaceVariant, 
-    required this.outline, 
-    required this.outlineVariant, 
-    required this.shadow, 
-    required this.scrim, 
-    required this.inverseSurface, 
-    required this.inverseOnSurface, 
-    required this.inversePrimary, 
-    required this.primaryFixed, 
-    required this.onPrimaryFixed, 
-    required this.primaryFixedDim, 
-    required this.onPrimaryFixedVariant, 
-    required this.secondaryFixed, 
-    required this.onSecondaryFixed, 
-    required this.secondaryFixedDim, 
-    required this.onSecondaryFixedVariant, 
-    required this.tertiaryFixed, 
-    required this.onTertiaryFixed, 
-    required this.tertiaryFixedDim, 
-    required this.onTertiaryFixedVariant, 
-    required this.surfaceDim, 
-    required this.surfaceBright, 
-    required this.surfaceContainerLowest, 
-    required this.surfaceContainerLow, 
-    required this.surfaceContainer, 
-    required this.surfaceContainerHigh, 
-    required this.surfaceContainerHighest, 
+    required this.primary,
+    required this.surfaceTint,
+    required this.onPrimary,
+    required this.primaryContainer,
+    required this.onPrimaryContainer,
+    required this.secondary,
+    required this.onSecondary,
+    required this.secondaryContainer,
+    required this.onSecondaryContainer,
+    required this.tertiary,
+    required this.onTertiary,
+    required this.tertiaryContainer,
+    required this.onTertiaryContainer,
+    required this.error,
+    required this.onError,
+    required this.errorContainer,
+    required this.onErrorContainer,
+    required this.background,
+    required this.onBackground,
+    required this.surface,
+    required this.onSurface,
+    required this.surfaceVariant,
+    required this.onSurfaceVariant,
+    required this.outline,
+    required this.outlineVariant,
+    required this.shadow,
+    required this.scrim,
+    required this.inverseSurface,
+    required this.inverseOnSurface,
+    required this.inversePrimary,
+    required this.primaryFixed,
+    required this.onPrimaryFixed,
+    required this.primaryFixedDim,
+    required this.onPrimaryFixedVariant,
+    required this.secondaryFixed,
+    required this.onSecondaryFixed,
+    required this.secondaryFixedDim,
+    required this.onSecondaryFixedVariant,
+    required this.tertiaryFixed,
+    required this.onTertiaryFixed,
+    required this.tertiaryFixedDim,
+    required this.onTertiaryFixedVariant,
+    required this.surfaceDim,
+    required this.surfaceBright,
+    required this.surfaceContainerLowest,
+    required this.surfaceContainerLow,
+    required this.surfaceContainer,
+    required this.surfaceContainerHigh,
+    required this.surfaceContainerHighest,
   });
 
   final Brightness brightness;
@@ -505,11 +548,9 @@ extension MaterialSchemeUtils on MaterialScheme {
       onError: onError,
       errorContainer: errorContainer,
       onErrorContainer: onErrorContainer,
-      background: background,
-      onBackground: onBackground,
       surface: surface,
       onSurface: onSurface,
-      surfaceVariant: surfaceVariant,
+      surfaceContainerHighest: surfaceVariant,
       onSurfaceVariant: onSurfaceVariant,
       outline: outline,
       outlineVariant: outlineVariant,

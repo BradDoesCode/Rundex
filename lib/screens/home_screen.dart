@@ -7,29 +7,27 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView.separated(
-        separatorBuilder: (context, index) => SizedBox(height: 16),
-        itemCount: ProgressionSections.values.length,
-        itemBuilder: (context, index) => SizedBox(
-          width: MediaQuery.of(context).size.width - 16,
-          height: 250,
-          child: ProgressCard(
-            title: ProgressionSections.values[index].title,
-            subtitle: ProgressionSections.values[index].subtitle,
-            image: ProgressionSections.values[index].image,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) =>
-                      ProgressionSections.values[index].screen,
-                ),
-              );
-            },
+    return Column(
+      children: [
+        for (var section in ProgressionSections.values)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width - 16,
+              child: ProgressCard(
+                title: section.title,
+                subtitle: section.subtitle,
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => section.screen,
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
-        ),
-      ),
+      ],
     );
   }
 }

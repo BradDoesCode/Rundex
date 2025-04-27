@@ -2,28 +2,35 @@ import 'package:flutter/material.dart';
 
 class ProgressCard extends StatelessWidget {
   const ProgressCard(
-      {super.key,
-      required this.title,
-      required this.subtitle,
-      required this.image,
-      this.onTap});
+      {super.key, required this.title, required this.subtitle, this.onTap});
   final String title;
   final String subtitle;
-  final Widget image;
   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Card(
-          clipBehavior: Clip.antiAlias,
-          child: Stack(
-            children: [
-              image,
-              TextContainer(title: title, subtitle: subtitle),
+      child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 246, 222, 158),
+                Color.fromARGB(255, 228, 195, 108),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.shadow,
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
             ],
-          )),
+          ),
+          child: TextContainer(title: title, subtitle: subtitle)),
     );
   }
 }
@@ -35,45 +42,26 @@ class TextContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 0,
-      left: 0,
-      right: 0, // Ensures the widget stretches horizontally within the parent
-      child: Container(
-        padding: EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Theme.of(context)
-                  .colorScheme
-                  .surfaceContainer
-                  .withValues(alpha: 0.8),
-              Theme.of(context)
-                  .colorScheme
-                  .surfaceContainer
-                  .withValues(alpha: 0.1),
-            ],
-            stops: [0.5, 1.0], // 75% primaryContainer, 25% transparent
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min, // Adjusts height to fit content
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 20,
+                ),
           ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min, // Adjusts height to fit content
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            SizedBox(height: 4),
-            Text(
-              subtitle,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-          ],
-        ),
+          SizedBox(height: 4),
+          Text(
+            subtitle,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ],
       ),
     );
   }
