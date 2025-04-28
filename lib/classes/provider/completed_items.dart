@@ -3,12 +3,17 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'completed_items.g.dart';
 
+
+
+
 @riverpod
 class CompletedItems extends _$CompletedItems {
   @override
   Future<Map<String, List<String>>> build() async {
+    ref.keepAlive();
     Map<String, List<String>> data =
-        (await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox)).cast<String, List<String>>();
+        (await HiveStorage().getBoxContentsAsMap(HiveStorage.completedBox))
+            .cast<String, List<String>>();
     return data;
   }
 
@@ -24,7 +29,8 @@ class CompletedItems extends _$CompletedItems {
     });
   }
 
-  Future<void> removeFromCompletedItems(String id, CompletedItemType type) async {
+  Future<void> removeFromCompletedItems(
+      String id, CompletedItemType type) async {
     final prestate = await future;
     final List<String> completedItems = prestate[type.hiveKey] ?? [];
     if (completedItems.contains(id)) {

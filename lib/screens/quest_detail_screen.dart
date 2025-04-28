@@ -57,7 +57,8 @@ class _StepContainerState extends ConsumerState<StepContainer> {
   Widget build(BuildContext context) {
     ref.watch(completedItemsProvider);
     return FutureBuilder<bool>(
-      future: isStepComplete(widget.step, widget.questType, ref), // Call the async function here
+      future: isStepComplete(
+          widget.step, widget.questType, ref), // Call the async function here
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           // Show a loading indicator while waiting for the result
@@ -95,9 +96,11 @@ class _StepContainerState extends ConsumerState<StepContainer> {
                   isChecked: isChecked,
                   onChanged: (value) {
                     if (value) {
-                      saveStepsToCompletedItems([widget.step], widget.questType, ref);
+                      saveStepsToCompletedItems(
+                          [widget.step], widget.questType, ref);
                     } else {
-                      removeFromCompletedItems([widget.step], widget.questType, ref);
+                      removeFromCompletedItems(
+                          [widget.step], widget.questType, ref);
                     }
                     setState(() {});
                     return null;

@@ -1,12 +1,27 @@
+import 'package:dragonwilds_companion/classes/collectibles/collectibles.dart';
+import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/screens/home_screen.dart';
 import 'package:dragonwilds_companion/theme.dart';
+import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:dragonwilds_companion/widgets/drawer.dart';
+import 'package:dragonwilds_companion/widgets/progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+late final List<Quest> kMainQuests;
+late final List<Quest> kSideQuests;
+late final List<Collectible> kLoreScraps;
+
+Future<void> main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Hive.initFlutter();
+  kMainQuests = await loadQuests(QuestType.main);
+  kSideQuests = await loadQuests(QuestType.side);
+  kLoreScraps = await loadLoreScraps();
+  FlutterNativeSplash.remove();
   runApp(
     ProviderScope(
       child: const MyApp(),
@@ -82,20 +97,13 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 32.0, top: 16),
-                child: Text('progress tracker goes here',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineLarge!
-                        .copyWith(fontSize: 20, color: Colors.white)),
-              ),
+              TotalProgress(),
               Stack(
                 children: [
                   WelcomeBack(),
                   Padding(
                       padding: const EdgeInsets.only(
-                          left: 8.0, right: 8.0, top: 160),
+                          left: 16.0, right: 16.0, top: 150),
                       child: HomeScreen()),
                   OverClaw(),
                 ],
@@ -132,7 +140,7 @@ class WelcomeBack extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 160,
+      height: 150,
       child: Stack(
         children: [
           Positioned(
@@ -159,4 +167,56 @@ class WelcomeBack extends StatelessWidget {
       ),
     );
   }
+}
+
+class TotalProgress extends StatelessWidget {
+  const TotalProgress({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0, right: 16, top: 32),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'Your Adventure',
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w400, fontSize: 20, color: Colors.white),
+          ),
+          const SizedBox(height: 4),
+          const ProgressBar(progress: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                '100%',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(color: Colors.white),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+Future<List<Quest>> loadQuests(QuestType type) async {
+  final jsonData = await loadJsonList(
+    type == QuestType.main
+        ? 'assets/data/quests/main_quests.json'
+        : 'assets/data/quests/side_quests.json',
+  );
+  return jsonData.map((quest) {
+    return Quest.fromJson(quest).addType(type);
+  }).toList();
+}
+
+Future<List<Collectible>> loadLoreScraps() async {
+  final data = await loadJsonList('assets/data/collectibles/lore_scraps.json');
+  return data.map((e) => Collectible.fromJson(e)).toList();
 }

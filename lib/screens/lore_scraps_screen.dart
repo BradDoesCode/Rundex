@@ -1,15 +1,10 @@
 import 'package:dragonwilds_companion/classes/collectibles/collectibles.dart';
+import 'package:dragonwilds_companion/main.dart';
 import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class LoreScrapsScreen extends StatelessWidget {
   const LoreScrapsScreen({super.key});
-
-  Future<List<Collectible>> loadLoreScraps() async {
-    final data =
-        await loadJsonList('assets/data/collectibles/lore_scraps.json');
-    return data.map((e) => Collectible.fromJson(e)).toList();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,23 +12,12 @@ class LoreScrapsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Lore Scraps'),
       ),
-      body: FutureBuilder(
-          future: loadLoreScraps(),
-          builder: (_, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (snapshot.hasError) {
-              return const Center(child: Text('Error loading lore scraps'));
-            }
-            final List<Collectible> items = snapshot.data!;
-            return ListView.builder(
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return ScrapItemCard(item: items[index]);
-              },
-            );
-          }),
+      body: ListView.builder(
+        itemCount: kLoreScraps.length,
+        itemBuilder: (context, index) {
+          return ScrapItemCard(item: kLoreScraps[index]);
+        },
+      ),
     );
   }
 }
@@ -61,7 +45,9 @@ class ScrapItemCard extends StatelessWidget {
         final url = Uri.parse(item.webLink!);
         await launchWeb(url);
       },
-      trailing: (true) ? Text('View on\nmap genie') : null,
+      trailing: (item.webLink != null && item.webLink!.isNotEmpty)
+          ? Text('View on\nmap genie')
+          : null,
     );
   }
 }

@@ -49,15 +49,14 @@ Future<void> removeFromHive(String id, CompletedItemType type) async {
 
 Future<bool> isQuestComplete(Quest quest, WidgetRef ref) async {
   final completedItems = ref.read(completedItemsProvider).value;
-  if (completedItems == null ||
-      completedItems[quest.type == QuestType.main
-              ? CompletedItemType.mainQuest.hiveKey
-              : CompletedItemType.sideQuest.hiveKey] ==
-          null) {
+  if (completedItems?[quest.type == QuestType.main
+          ? CompletedItemType.mainQuest.hiveKey
+          : CompletedItemType.sideQuest.hiveKey] ==
+      null) {
     return false;
   }
   for (var step in quest.steps!) {
-    if (!completedItems[(quest.type == QuestType.main)
+    if (!completedItems![(quest.type == QuestType.main)
             ? CompletedItemType.mainQuest.hiveKey
             : CompletedItemType.sideQuest.hiveKey]!
         .contains(step.id)) {
@@ -69,14 +68,13 @@ Future<bool> isQuestComplete(Quest quest, WidgetRef ref) async {
 
 Future<bool> isStepComplete(Step step, QuestType type, WidgetRef ref) async {
   final completedItems = ref.read(completedItemsProvider).value;
-  if (completedItems == null ||
-      completedItems[type == QuestType.main
-              ? CompletedItemType.mainQuest.hiveKey
-              : CompletedItemType.sideQuest.hiveKey] ==
-          null) {
+  if (completedItems?[type == QuestType.main
+          ? CompletedItemType.mainQuest.hiveKey
+          : CompletedItemType.sideQuest.hiveKey] ==
+      null) {
     return false;
   }
-  return completedItems[(type == QuestType.main)
+  return completedItems![(type == QuestType.main)
           ? CompletedItemType.mainQuest.hiveKey
           : CompletedItemType.sideQuest.hiveKey]!
       .contains(step.id);
@@ -85,7 +83,6 @@ Future<bool> isStepComplete(Step step, QuestType type, WidgetRef ref) async {
 Future<void> saveStepsToCompletedItems(
     List<Step> steps, QuestType type, WidgetRef ref) async {
   for (var step in steps) {
-    //provider already checks for already completed items
     await addToHive(
         step.id,
         type == QuestType.main
@@ -113,4 +110,11 @@ Future<void> removeFromCompletedItems(
             ? CompletedItemType.mainQuest
             : CompletedItemType.sideQuest);
   }
+}
+
+int completionPercentage(int completed, int total) {
+  if (total == 0) {
+    return 0;
+  }
+  return ((completed / total) * 100).round();
 }

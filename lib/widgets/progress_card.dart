@@ -45,7 +45,7 @@ class TextContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
       child: Column(
-        mainAxisSize: MainAxisSize.min, // Adjusts height to fit content
+        mainAxisSize: MainAxisSize.min, 
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

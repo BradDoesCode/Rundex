@@ -1,5 +1,9 @@
+import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
+import 'package:dragonwilds_companion/classes/quest/quest.dart';
+import 'package:dragonwilds_companion/main.dart';
 import 'package:dragonwilds_companion/screens/lore_scraps_screen.dart';
 import 'package:dragonwilds_companion/screens/quest_list_screen.dart';
+import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 enum ProgressionSections { mainQuest, sideQuest, lore }
@@ -54,16 +58,37 @@ extension ProgressionSectionsExtension on ProgressionSections {
     switch (this) {
       case ProgressionSections.mainQuest:
         return QuestListScreen(
-          type: 'main',
+          type: QuestType.main,
           title: ProgressionSections.mainQuest.title,
         );
       case ProgressionSections.sideQuest:
         return QuestListScreen(
-          type: 'side',
+          type: QuestType.side,
           title: ProgressionSections.sideQuest.title,
         );
       case ProgressionSections.lore:
         return LoreScrapsScreen();
     }
   }
+
+  int percent(Map<String, List<String>> completedItems) {
+    switch (this) {
+      case ProgressionSections.mainQuest:
+        return calculateQuestPercent(
+            completedItems[CompletedItemType.mainQuest.hiveKey]?.length ?? 0,
+            kMainQuests);
+      case ProgressionSections.sideQuest:
+        return calculateQuestPercent(
+            completedItems[CompletedItemType.sideQuest.hiveKey]?.length ?? 0,
+            kSideQuests);
+      case ProgressionSections.lore:
+        return 0;
+    }
+  }
+}
+
+int calculateQuestPercent(int completedItems, List<Quest> quests) {
+  final totalQuests = quests.fold(
+      0, (int sum, Quest quest) => sum + (quest.steps?.length ?? 0));
+  return completionPercentage(completedItems, totalQuests);
 }
