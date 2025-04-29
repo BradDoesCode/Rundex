@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProgressCard extends StatelessWidget {
-  const ProgressCard(
-      {super.key, required this.title, required this.subtitle, this.onTap});
-  final String title;
-  final String subtitle;
+  const ProgressCard({super.key, required this.child, this.onTap});
+  final Widget child;
   final void Function()? onTap;
 
   @override
@@ -30,7 +28,7 @@ class ProgressCard extends StatelessWidget {
               ),
             ],
           ),
-          child: TextContainer(title: title, subtitle: subtitle)),
+          child: child),
     );
   }
 }
@@ -45,7 +43,7 @@ class TextContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
       child: Column(
-        mainAxisSize: MainAxisSize.min, 
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

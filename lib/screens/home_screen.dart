@@ -61,9 +61,11 @@ class HomeScreenTiles extends ConsumerWidget {
             child: SizedBox(
               width: MediaQuery.of(context).size.width - 16,
               child: ProgressCard(
-                title: section.title,
-                subtitle:
-                    "${section.percent(completedItems.value ?? {})}% complete",
+                child: TextContainer(
+                  title: section.title,
+                  subtitle:
+                      "${section.percent(completedItems.value ?? {})}% complete",
+                ),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
