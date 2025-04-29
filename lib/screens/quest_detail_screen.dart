@@ -139,21 +139,19 @@ class _SpoilerContainerState extends State<SpoilerContainer> {
               widget.child,
               if (!showContent)
                 BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                  child: Container(
-                    color: Colors.black.withValues(alpha: 0.1),
-                  ),
+                  filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+                  child: Container(),
                 ),
               if (!showContent)
                 Positioned.fill(
                   child: Center(
                     child: Text(
                       'Tap to reveal',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
                     ),
                   ),
                 ),

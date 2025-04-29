@@ -1,23 +1,45 @@
 import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({super.key});
 
+  Future<String> getVersion() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    return packageInfo.version;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: MediaQuery.of(context).size.width * 0.7,
       child: Column(
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary,
+              //420D8D
+              color: Color.fromARGB(255, 66, 13, 141),
             ),
-            child: Text(
-              'Dragonwilds Companion',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/dragonwilds_companion.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                  Text(
+                    'Runedex',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -44,11 +66,20 @@ class DrawerMenu extends StatelessWidget {
             title: const Text('Buy us a health potion'),
             onTap: () {},
           ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: const Text('Version: 0.0.0'),
-            ),
+          FutureBuilder(
+            future: getVersion(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                return const Text('Error loading version');
+              } else {
+                return ListTile(
+                  title: Text('Version: ${snapshot.data}'),
+                  onTap: () {},
+                );
+              }
+            },
           ),
         ],
       ),

@@ -44,6 +44,7 @@ dependencies:
   url_launcher: ^6.3.1
   flutter_native_splash: ^2.4.4
   google_fonts: ^6.2.1
+  package_info_plus: ^8.3.0
   
 
 
@@ -76,6 +77,7 @@ flutter:
     - assets/stone.png
     - assets/lore.png
     - assets/menu.png
+    - assets/dragonwilds_companion.png
     - assets/data/quests/main_quests.json
     - assets/data/quests/side_quests.json
     - assets/data/collectibles/lore_scraps.json

@@ -363,6 +363,11 @@ class MaterialTheme {
 
   ThemeData theme(ColorScheme colorScheme) => ThemeData(
         useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(
+            color: Colors.white,
+          ),
+        ),
         brightness: colorScheme.brightness,
         colorScheme: colorScheme,
         textTheme: textTheme.copyWith(
