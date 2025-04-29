@@ -2,6 +2,7 @@ import 'package:dragonwilds_companion/classes/progression_sections/progression_s
 import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/main.dart';
 import 'package:dragonwilds_companion/utils/utils.dart';
+import 'package:dragonwilds_companion/widgets/body_background.dart';
 import 'package:dragonwilds_companion/widgets/progress_bar.dart';
 import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
@@ -12,19 +13,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: RadialGradient(
-          colors: [
-            Color(0xFF342496), // Outer color
-            Color(0xFF34296D), // Inner color
-          ],
-          center: Alignment.center,
-          radius: 1.0,
-        ),
-      ),
+    return BodyBackground(
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,

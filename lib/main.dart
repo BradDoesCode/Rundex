@@ -3,6 +3,7 @@ import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/screens/home_screen.dart';
 import 'package:dragonwilds_companion/theme.dart';
 import 'package:dragonwilds_companion/utils/utils.dart';
+import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
 import 'package:dragonwilds_companion/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -50,18 +51,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor:
             Colors.transparent, // Make the AppBar background transparent
         elevation: 0, // Optional: Remove shadow
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF34296D), // Start color
-                Color(0xFF342496), // End color
-              ],
-              begin: Alignment.topLeft, // Gradient starts at the top-left
-              end: Alignment.bottomRight, // Gradient ends at the bottom-right
-            ),
-          ),
-        ),
+        flexibleSpace: AppBarBackground(),
         leading: Builder(
           builder: (context) {
             return IconButton(

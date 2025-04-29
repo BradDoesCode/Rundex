@@ -2,6 +2,9 @@ import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/main.dart';
 import 'package:dragonwilds_companion/screens/quest_detail_screen.dart';
+import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
+import 'package:dragonwilds_companion/widgets/body_background.dart';
+import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,17 +18,27 @@ class QuestListScreen extends StatelessWidget {
     final quests = type == QuestType.main ? kMainQuests : kSideQuests;
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        flexibleSpace: AppBarBackground(),
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+              fontWeight: FontWeight.w500, fontSize: 30, color: Colors.white),
+        ),
       ),
-      body: ListView.builder(
-        itemCount: quests.length,
-        itemBuilder: (context, index) {
-          final quest = quests[index];
-          return QuestCard(
-            quest: quest,
-          );
-        },
+      body: BodyBackground(
+        child: ListView.separated(
+          padding: EdgeInsets.all(16),
+          separatorBuilder: (context, index) => const SizedBox(height: 16),
+          itemCount: quests.length,
+          itemBuilder: (context, index) {
+            final quest = quests[index];
+            return QuestCard(
+              quest: quest,
+            );
+          },
+        ),
       ),
     );
   }
@@ -36,14 +49,18 @@ class QuestCard extends StatelessWidget {
   final Quest quest;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    return ProgressCard(
       child: Column(
         children: [
           ListTile(
-            title: Text(quest.name),
-            subtitle: Text(quest.description ?? ''),
+            title: Text(quest.name,
+                style: Theme.of(context).textTheme.headlineSmall),
+            subtitle: quest.description != null
+                ? Text(
+                    quest.description!,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  )
+                : null,
             onTap: () {
               Navigator.push(
                 context,
@@ -61,11 +78,14 @@ class QuestCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              IsCompletedButton(
-                itemIds: quest.steps?.map((e) => e.id).toList() ?? [],
-                type: quest.type! == QuestType.main
-                    ? CompletedItemType.mainQuest
-                    : CompletedItemType.sideQuest,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: IsCompletedButton(
+                  itemIds: quest.steps?.map((e) => e.id).toList() ?? [],
+                  type: quest.type! == QuestType.main
+                      ? CompletedItemType.mainQuest
+                      : CompletedItemType.sideQuest,
+                ),
               ),
             ],
           ),
@@ -95,6 +115,6 @@ class IsCompletedButton extends ConsumerWidget {
                   .read(completedItemsProvider.notifier)
                   .addToCompletedItems(itemIds, type);
         },
-        child: Text("${isCompleted ? '' : 'in'}Complete"));
+        child: Text("Mark as ${isCompleted ? '' : 'in'}complete"));
   }
 }
