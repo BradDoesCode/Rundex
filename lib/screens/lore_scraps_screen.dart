@@ -1,7 +1,13 @@
 import 'package:dragonwilds_companion/classes/collectibles/collectibles.dart';
+import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/main.dart';
+import 'package:dragonwilds_companion/utils/hive.dart';
 import 'package:dragonwilds_companion/utils/utils.dart';
+import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
+import 'package:dragonwilds_companion/widgets/body_background.dart';
+import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoreScrapsScreen extends StatelessWidget {
   const LoreScrapsScreen({super.key});
@@ -10,13 +16,24 @@ class LoreScrapsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lore Scraps'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        flexibleSpace: AppBarBackground(),
+        title: Text(
+          'Lore Scraps',
+          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+              fontWeight: FontWeight.w500, fontSize: 30, color: Colors.white),
+        ),
       ),
-      body: ListView.builder(
-        itemCount: kLoreScraps.length,
-        itemBuilder: (context, index) {
-          return ScrapItemCard(item: kLoreScraps[index]);
-        },
+      body: BodyBackground(
+        child: ListView.separated(
+          separatorBuilder: (context, index) => const SizedBox(height: 16),
+          padding: const EdgeInsets.all(16),
+          itemCount: kLoreScraps.length,
+          itemBuilder: (context, index) {
+            return ScrapItemCard(item: kLoreScraps[index]);
+          },
+        ),
       ),
     );
   }
@@ -28,26 +45,62 @@ class ScrapItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(item.name),
-      subtitle: Text("${item.location}\n${item.region}"),
-      leading: item.image != null
-          ? Image.asset(
-              item.image!,
-              width: 50,
-              height: 50,
-            )
-          : null,
-      onTap: () async {
-        if (item.webLink == null) {
-          return;
-        }
-        final url = Uri.parse(item.webLink!);
-        await launchWeb(url);
+    return ProgressCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            child: Text(item.name,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: Colors.black)),
+          ),
+          ListTile(
+            leading: Icon(Icons.location_on),
+            title: Text("${item.location} in ${item.region}"),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () async {
+                    if (item.webLink == null) {
+                      return;
+                    }
+                    final url = Uri.parse(item.webLink!);
+                    await launchWeb(url);
+                  },
+                  child: Text('View on map genie'),
+                ),
+                CollectibleFoundButton(item: item),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class CollectibleFoundButton extends ConsumerWidget {
+  const CollectibleFoundButton({super.key, required this.item});
+  final Collectible item;
+  @override
+  Widget build(BuildContext context, ref) {
+    final completedItems =
+        ref.watch(completedItemsProvider).value?[HiveStorage.loreScrapKey];
+    final isCompleted = completedItems?.contains(item.id) ?? false;
+    return FilledButton(
+      onPressed: () {
+        ref
+            .read(completedItemsProvider.notifier)
+            .addToCompletedItems([item.id], CompletedItemType.loreScrap);
       },
-      trailing: (item.webLink != null && item.webLink!.isNotEmpty)
-          ? Text('View on\nmap genie')
-          : null,
+      child: Text('Mark as ${isCompleted ? 'not' : ''} found'),
     );
   }
 }
