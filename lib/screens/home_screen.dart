@@ -112,10 +112,11 @@ class WelcomeBack extends StatelessWidget {
             child: Text(
               'WELCOME\nBACK,\nSLAYER!',
               style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.white,
-                  ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: Colors.white,
+                  height: 1.2,
+                  letterSpacing: 1.2),
             ),
           ),
           Positioned(
