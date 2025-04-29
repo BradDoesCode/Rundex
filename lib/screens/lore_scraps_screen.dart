@@ -1,6 +1,7 @@
 import 'package:dragonwilds_companion/classes/collectibles/collectibles.dart';
 import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/main.dart';
+import 'package:dragonwilds_companion/screens/quest_detail_screen.dart';
 import 'package:dragonwilds_companion/utils/hive.dart';
 import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
@@ -57,9 +58,11 @@ class ScrapItemCard extends StatelessWidget {
                     .titleLarge!
                     .copyWith(color: Colors.black)),
           ),
-          ListTile(
-            leading: Icon(Icons.location_on),
-            title: Text("${item.location} in ${item.region}"),
+          SpoilerContainer(
+            child: ListTile(
+              leading: Icon(Icons.location_on),
+              title: Text("${item.location} in ${item.region}"),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -96,6 +99,12 @@ class CollectibleFoundButton extends ConsumerWidget {
     final isCompleted = completedItems?.contains(item.id) ?? false;
     return FilledButton(
       onPressed: () {
+        if (isCompleted) {
+          ref
+              .read(completedItemsProvider.notifier)
+              .removeFromCompletedItems([item.id], CompletedItemType.loreScrap);
+          return;
+        }
         ref
             .read(completedItemsProvider.notifier)
             .addToCompletedItems([item.id], CompletedItemType.loreScrap);

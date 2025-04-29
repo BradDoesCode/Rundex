@@ -82,7 +82,9 @@ extension ProgressionSectionsExtension on ProgressionSections {
             completedItems[CompletedItemType.sideQuest.hiveKey]?.length ?? 0,
             kSideQuests);
       case ProgressionSections.lore:
-        return 0;
+        return completionPercentage(
+            completedItems[CompletedItemType.loreScrap.hiveKey]?.length ?? 0,
+            kLoreScraps.length);
     }
   }
 }
