@@ -3,8 +3,7 @@ import 'dart:ui';
 import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/classes/step/step.dart' as cs;
-import 'package:dragonwilds_companion/utils/utils.dart';
-import 'package:dragonwilds_companion/widgets/check_box.dart';
+import 'package:dragonwilds_companion/screens/quest_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -43,77 +42,27 @@ class QuestDetailScreen extends ConsumerWidget {
   }
 }
 
-class StepContainer extends ConsumerStatefulWidget {
+class StepContainer extends StatelessWidget {
   const StepContainer({super.key, required this.step, required this.questType});
   final cs.Step step;
   final QuestType questType;
 
   @override
-  ConsumerState<StepContainer> createState() => _StepContainerState();
-}
-
-class _StepContainerState extends ConsumerState<StepContainer> {
-  @override
   Widget build(BuildContext context) {
-    ref.watch(completedItemsProvider);
-    return FutureBuilder<bool>(
-      future: isStepComplete(
-          widget.step, widget.questType, ref), // Call the async function here
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          // Show a loading indicator while waiting for the result
-          return ListTile(
-            title: Row(
-              children: [
-                Expanded(child: Text(widget.step.name)),
-                Checkbox(value: false, onChanged: (value) {}),
-              ],
-            ),
-            subtitle: SpoilerContainer(
-              child: Text(widget.step.description ?? ''),
-            ),
-          );
-        } else if (snapshot.hasError) {
-          // Handle errors
-          return ListTile(
-            title: Row(
-              children: [
-                Expanded(child: Text(widget.step.name)),
-                const Icon(Icons.error, color: Colors.red), // Error indicator
-              ],
-            ),
-            subtitle: SpoilerContainer(
-              child: Text(widget.step.description ?? ''),
-            ),
-          );
-        } else {
-          final isChecked = snapshot.data ?? false;
-          return ListTile(
-            title: Row(
-              children: [
-                Expanded(child: Text(widget.step.name)),
-                CustomCheckBox(
-                  isChecked: isChecked,
-                  onChanged: (value) {
-                    if (value) {
-                      saveStepsToCompletedItems(
-                          [widget.step], widget.questType, ref);
-                    } else {
-                      removeFromCompletedItems(
-                          [widget.step], widget.questType, ref);
-                    }
-                    setState(() {});
-                    return null;
-                  },
-                ),
-              ],
-            ),
-            subtitle: SpoilerContainer(
-              child: Text(widget.step.description ?? ''),
-            ),
-          );
-        }
-      },
+    return ListTile(
+      title: Row(
+        children: [
+          Expanded(child: Text(step.name)),
+          IsCompletedButton(
+              itemIds: [step.id],
+              type: questType == QuestType.main
+                  ? CompletedItemType.mainQuest
+                  : CompletedItemType.sideQuest) // Error indicator
+        ],
+      ),
+      subtitle: SpoilerContainer(
+        child: Text(step.description ?? ''),
+      ),
     );
   }
 }

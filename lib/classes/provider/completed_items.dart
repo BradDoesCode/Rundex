@@ -3,9 +3,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'completed_items.g.dart';
 
-
-
-
 @riverpod
 class CompletedItems extends _$CompletedItems {
   @override
@@ -17,35 +14,46 @@ class CompletedItems extends _$CompletedItems {
     return data;
   }
 
-  Future<void> addToCompletedItems(String id, CompletedItemType type) async {
+  Future<void> addToCompletedItems(
+      List<String> ids, CompletedItemType type) async {
     final prestate = await future;
     final List<String> completedItems = prestate[type.hiveKey] ?? [];
-    if (completedItems.contains(id)) {
-      return;
-    }
+
+    final newIds = ids.where((id) => !completedItems.contains(id)).toList();
+    completedItems.addAll(newIds);
+    addToHive(type.hiveKey, completedItems);
     state = AsyncData({
       ...prestate,
-      type.hiveKey: completedItems..add(id),
+      type.hiveKey: completedItems,
     });
   }
 
+  Future<void> addToHive(String key, List<String> value) async {
+    await HiveStorage().put(HiveStorage.completedBox, key, value);
+  }
+
   Future<void> removeFromCompletedItems(
-      String id, CompletedItemType type) async {
+      List<String> ids, CompletedItemType type) async {
     final prestate = await future;
     final List<String> completedItems = prestate[type.hiveKey] ?? [];
-    if (completedItems.contains(id)) {
-      completedItems.remove(id);
-      state = AsyncData({
-        ...prestate,
-        type.hiveKey: completedItems,
-      });
-    }
+    completedItems.removeWhere((item) => ids.any((id) => id == item));
+    addToHive(type.hiveKey, completedItems);
+    state = AsyncData({
+      ...prestate,
+      type.hiveKey: completedItems,
+    });
   }
 
   Future<void> clear() async {
     await HiveStorage().clear(HiveStorage.mainQuestKey);
     await HiveStorage().clear(HiveStorage.sideQuestKey);
     state = const AsyncData({});
+  }
+
+  Future<bool> isCompleted(List<String> items, CompletedItemType type) async {
+    final prestate = await future;
+    final List<String> completedItems = prestate[type.hiveKey] ?? [];
+    return items.every((item) => completedItems.contains(item));
   }
 }
 
