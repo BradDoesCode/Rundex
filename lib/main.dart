@@ -1,4 +1,5 @@
 import 'package:dragonwilds_companion/classes/collectibles/collectibles.dart';
+import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/screens/home_screen.dart';
 import 'package:dragonwilds_companion/theme.dart';
@@ -169,11 +170,27 @@ class WelcomeBack extends StatelessWidget {
   }
 }
 
-class TotalProgress extends StatelessWidget {
+class TotalProgress extends ConsumerWidget {
   const TotalProgress({super.key});
 
+  int calculateTotal(Map<String, List<String>> completedItems) {
+    int allItems = kMainQuests.fold<int>(0, (int sum, quest) {
+          return sum + (quest.steps?.length ?? 0);
+        }) +
+        kSideQuests.fold<int>(0, (int sum, quest) {
+          return sum + (quest.steps?.length ?? 0);
+        }) +
+        kLoreScraps.length;
+    int completed = completedItems.values.fold<int>(0, (int sum, list) {
+      return sum + list.length;
+    });
+    return completionPercentage(completed, allItems);
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final completedItems = ref.watch(completedItemsProvider).value;
+    final percent = calculateTotal(completedItems ?? {});
     return Padding(
       padding: const EdgeInsets.only(left: 16.0, right: 16, top: 32),
       child: Column(
@@ -186,12 +203,12 @@ class TotalProgress extends StatelessWidget {
                 fontWeight: FontWeight.w400, fontSize: 20, color: Colors.white),
           ),
           const SizedBox(height: 4),
-          const ProgressBar(progress: 10),
+          ProgressBar(progress: percent),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                '100%',
+                '$percent%',
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge!

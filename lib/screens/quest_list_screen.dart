@@ -84,7 +84,6 @@ class IsCompletedButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final completed =
         ref.watch(completedItemsProvider).value?[type.hiveKey] ?? [];
-    print(completed);
     final isCompleted = itemIds.every((item) => completed.contains(item));
     return FilledButton(
         onPressed: () {

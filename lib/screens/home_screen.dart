@@ -10,7 +10,6 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final completedItems = ref.watch(completedItemsProvider);
-    print("Homescreen build");
     return Column(
       children: [
         for (var section in ProgressionSections.values)

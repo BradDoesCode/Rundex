@@ -1,11 +1,5 @@
 import 'dart:convert';
-
-import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
-import 'package:dragonwilds_companion/classes/quest/quest.dart';
-import 'package:dragonwilds_companion/classes/step/step.dart';
-import 'package:dragonwilds_companion/utils/hive.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> launchWeb(Uri url) async {
