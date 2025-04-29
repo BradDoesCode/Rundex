@@ -79,10 +79,12 @@ class OverClaw extends StatelessWidget {
     return Positioned(
       top: 3,
       right: 0,
-      child: Image.asset(
-        'assets/home_claw.png',
-        width: MediaQuery.of(context).size.width * 0.6,
-        fit: BoxFit.cover,
+      child: IgnorePointer(
+        child: Image.asset(
+          'assets/home_claw.png',
+          width: MediaQuery.of(context).size.width * 0.6,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
