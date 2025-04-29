@@ -4,6 +4,9 @@ import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
 import 'package:dragonwilds_companion/classes/quest/quest.dart';
 import 'package:dragonwilds_companion/classes/step/step.dart' as cs;
 import 'package:dragonwilds_companion/screens/quest_list_screen.dart';
+import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
+import 'package:dragonwilds_companion/widgets/body_background.dart';
+import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,29 +17,41 @@ class QuestDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(quest.name),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        flexibleSpace: AppBarBackground(),
+        title: Text(
+          quest.name,
+          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+              fontWeight: FontWeight.w500, fontSize: 30, color: Colors.white),
+        ),
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              quest.description ?? '',
-              style: Theme.of(context).textTheme.bodyLarge,
+      body: BodyBackground(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                quest.description ?? '',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: quest.steps?.length,
-              itemBuilder: (context, index) {
-                return StepContainer(
-                  step: quest.steps![index],
-                  questType: quest.type!,
-                );
-              },
+            Expanded(
+              child: ListView.separated(
+                padding: const EdgeInsets.all(16),
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 16),
+                itemCount: quest.steps!.length,
+                itemBuilder: (context, index) {
+                  return StepContainer(
+                    step: quest.steps![index],
+                    questType: quest.type!,
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -49,19 +64,46 @@ class StepContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Row(
-        children: [
-          Expanded(child: Text(step.name)),
-          IsCompletedButton(
-              itemIds: [step.id],
-              type: questType == QuestType.main
-                  ? CompletedItemType.mainQuest
-                  : CompletedItemType.sideQuest) // Error indicator
-        ],
-      ),
-      subtitle: SpoilerContainer(
-        child: Text(step.description ?? ''),
+    return ProgressCard(
+      child: ListTile(
+        title: Row(
+          children: [
+            Expanded(
+                child: Text(
+              step.name,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontWeight: FontWeight.w500, color: Colors.black),
+            )), // Error indicator
+          ],
+        ),
+        subtitle: Column(
+          children: [
+            SizedBox(height: 8),
+            SpoilerContainer(
+              child: Text(
+                step.description ?? '',
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IsCompletedButton(
+                  itemIds: [step.id],
+                  type: questType == QuestType.main
+                      ? CompletedItemType.mainQuest
+                      : CompletedItemType.sideQuest,
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -89,9 +131,7 @@ class _SpoilerContainerState extends State<SpoilerContainer> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
         child: Container(
-          padding: const EdgeInsets.all(8.0),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainer,
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: Stack(

@@ -49,47 +49,51 @@ class QuestCard extends StatelessWidget {
   final Quest quest;
   @override
   Widget build(BuildContext context) {
-    return ProgressCard(
-      child: Column(
-        children: [
-          ListTile(
-            title: Text(quest.name,
-                style: Theme.of(context).textTheme.headlineSmall),
-            subtitle: quest.description != null
-                ? Text(
-                    quest.description!,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  )
-                : null,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => QuestDetailScreen(quest: quest),
-                ),
-              );
-            },
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => QuestDetailScreen(quest: quest),
           ),
-          if (quest.image != null)
-            Image.asset(
-              quest.image!,
-              fit: BoxFit.cover,
+        );
+      },
+      child: ProgressCard(
+        child: Column(
+          children: [
+            ListTile(
+              title: Text(quest.name,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontWeight: FontWeight.w500, color: Colors.black)),
+              subtitle: quest.description != null
+                  ? Text(
+                      quest.description!,
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontWeight: FontWeight.w400, color: Colors.black),
+                    )
+                  : null,
             ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IsCompletedButton(
-                  itemIds: quest.steps?.map((e) => e.id).toList() ?? [],
-                  type: quest.type! == QuestType.main
-                      ? CompletedItemType.mainQuest
-                      : CompletedItemType.sideQuest,
-                ),
+            if (quest.image != null)
+              Image.asset(
+                quest.image!,
+                fit: BoxFit.cover,
               ),
-            ],
-          ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IsCompletedButton(
+                    itemIds: quest.steps?.map((e) => e.id).toList() ?? [],
+                    type: quest.type! == QuestType.main
+                        ? CompletedItemType.mainQuest
+                        : CompletedItemType.sideQuest,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

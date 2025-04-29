@@ -368,51 +368,51 @@ class MaterialTheme {
         textTheme: textTheme.copyWith(
           displayLarge: GoogleFonts.imFellDwPicaSc(
             fontSize: 34,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           displayMedium: GoogleFonts.imFellDwPicaSc(
             fontSize: 30,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           displaySmall: GoogleFonts.imFellDwPicaSc(
             fontSize: 26,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           headlineLarge: GoogleFonts.imFellDwPicaSc(
             fontSize: 28,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           headlineMedium: GoogleFonts.imFellDwPicaSc(
             fontSize: 24,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           headlineSmall: GoogleFonts.imFellDwPicaSc(
             fontSize: 20,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           titleLarge: GoogleFonts.mateSc(
             fontSize: 24,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           titleMedium: GoogleFonts.mateSc(
             fontSize: 20,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           titleSmall: GoogleFonts.mateSc(
             fontSize: 16,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           bodyLarge: GoogleFonts.cormorantGaramond(
             fontSize: 16,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           bodyMedium: GoogleFonts.cormorantGaramond(
             fontSize: 14,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
           bodySmall: GoogleFonts.cormorantGaramond(
             fontSize: 12,
-            color: colorScheme.onSurface,
+            color: Colors.white,
           ),
         ),
         scaffoldBackgroundColor: colorScheme.surface,

@@ -50,14 +50,18 @@ class TextContainer extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontWeight: FontWeight.w200,
+                  fontWeight: FontWeight.w500,
                   fontSize: 20,
+                  color: Colors.black,
                 ),
           ),
           SizedBox(height: 4),
           Text(
             subtitle,
-            style: Theme.of(context).textTheme.bodyLarge,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(color: Colors.black),
           ),
         ],
       ),
