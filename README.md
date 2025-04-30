@@ -18,11 +18,17 @@ Whether you're aiming for 100% or just want to stay organized, Runedex helps you
 
 ## 📸 Screenshots
 
-<div style="display: flex; overflow-x: auto; gap: 10px;">
-  <img src="assets/screenshots/home_screen.png" alt="Home Screen" width="300" />
-  <img src="assets/screenshots/quest_details.png" alt="Quest Details" width="300" />
-  <img src="assets/screenshots/lore_scraps.png" alt="Lore Scraps" width="300" />
-</div>
+<p align="center">
+  <kbd>
+    <img src="assets/screenshots/home_screen.png" alt="Home Screen" width="250" />
+  </kbd>
+  <kbd>
+    <img src="assets/screenshots/quest_details.png" alt="Quest Details" width="250" />
+  </kbd>
+  <kbd>
+    <img src="assets/screenshots/lore_scraps.png" alt="Lore Scraps" width="250" />
+  </kbd>
+</p>
 
 
 ## 🚀 Installation
