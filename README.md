@@ -43,6 +43,16 @@ You can view the full policy here:
 
 ---
 
+## 💖 Support the Project
+
+If you find **Runedex** helpful and want to support future updates, you can [buy me a coffee](https://buymeacoffee.com/braddoescode)!
+
+<a href="https://buymeacoffee.com/braddoescode" target="_blank">
+  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=braddoescode&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff" />
+</a>
+
+---
+
 ## 🧾 License
 
 This project is licensed under the [Apache 2.0](./LICENSE).
