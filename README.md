@@ -16,6 +16,18 @@ Whether you're aiming for 100% or just want to stay organized, Runedex helps you
 
 ---
 
+## 📸 Screenshots
+
+### Home Screen
+![Home Screen](assets/screenshots/home_screen.png)
+
+### Quest Details
+![Quest Details](assets/screenshots/quest_details.png)
+
+### Progress Tracker
+![Lore Scraps](assets/screenshots/lore_scraps.png)
+
+
 ## 🚀 Installation
 
 ### 📱 Android
