@@ -1,0 +1,38 @@
+name: Tester Sign-Up
+description: Sign up to become a tester for the app.
+labels: tester-signup
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎉 Thank you for your interest in testing our app!
+
+        Please fill out the details below to sign up as a tester. We'll reach out to you with further instructions.
+
+  - type: input
+    id: name
+    attributes:
+      label: Your Name
+      description: Enter your full name (optional).
+      placeholder: John Doe
+
+  - type: input
+    id: email
+    attributes:
+      label: Email Address
+      description: Enter the email address where we can contact you.
+      placeholder: example@example.com
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Preferred Platform
+      description: Select the platform you want to test on.
+      options:
+        - Android
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 📢 Next Steps
+        Once you submit this form, we'll review your application and get back to you with further instructions. Thank you for your interest in helping us improve our app!
