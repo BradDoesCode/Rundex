@@ -1,16 +1,64 @@
-# dragonwilds_companion
+# Runedex
 
-A new Flutter project.
+**Runedex** is a completion tracker companion app for **RuneScape Dragonwilds**. Keep track of your completed quests, side quests, and collectibles — and watch your completion percentage grow as you explore.
 
-## Getting Started
+Whether you're aiming for 100% or just want to stay organized, Runedex helps you stay on top of your progress with a clean and simple interface.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- ✅ Track quests, side quests, and collectibles
+- 📊 Live completion percentage
+- 💾 All progress stored locally on your device
+- 📱 Available on **Android** and **iOS**
+- 🧭 Designed specifically for RuneScape fans
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🚀 Installation
+
+### 📱 Android
+- Install from the [Google Play Store](#) *(coming soon)*
+
+### 🍎 iOS
+- Available on the App Store *(coming soon)*
+
+---
+
+## 🔒 Privacy Policy
+
+Runedex does **not** collect personal data.  
+You can view the full policy here:  
+📄 [Privacy Policy](https://github.com/yourusername/dragonwilds_companion/wiki/Privacy-Policy)
+
+---
+
+## 🛠️ Built With
+
+- [Flutter](https://flutter.dev/)
+- Dart
+- Local storage (e.g., Hive)
+- Designed for both Android and iOS
+
+---
+
+## 🧾 License
+
+This project is licensed under the [Apache 2.0](./LICENSE).
+
+---
+
+## 🙌 Contributing
+
+Contributions, bug reports, and feature suggestions are welcome!  
+Feel free to fork the repo and open a pull request.
+
+---
+
+## 📬 Contact
+
+**Developer:** [Brad Barbrook]  
+**Email:** [bradbarbrook@gmail.com]  
+**GitHub:** [@BradDoesCode](https://github.com/BradDoesCode)
+
