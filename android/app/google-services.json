@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "282908467843",
+    "project_id": "runedex-a36dd",
+    "storage_bucket": "runedex-a36dd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282908467843:android:8a2d9a784b84f4e503f1b6",
+        "android_client_info": {
+          "package_name": "uk.co.rundex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYC8B6JcXoQc6knNxq67aY6RMTfLkDyWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
