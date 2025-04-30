@@ -30,7 +30,7 @@ Whether you're aiming for 100% or just want to stay organized, Runedex helps you
 
 Runedex does **not** collect personal data.  
 You can view the full policy here:  
-📄 [Privacy Policy](https://github.com/yourusername/dragonwilds_companion/wiki/Privacy-Policy)
+📄 [Privacy Policy](https://github.com/BradDoesCode/Runedex/wiki/Privacy-Policy)
 
 ---
 
