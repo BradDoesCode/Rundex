@@ -18,14 +18,11 @@ Whether you're aiming for 100% or just want to stay organized, Runedex helps you
 
 ## 📸 Screenshots
 
-### Home Screen
-![Home Screen](assets/screenshots/home_screen.png)
-
-### Quest Details
-![Quest Details](assets/screenshots/quest_details.png)
-
-### Progress Tracker
-![Lore Scraps](assets/screenshots/lore_scraps.png)
+<div style="overflow-x: auto; white-space: nowrap;">
+  <img src="assets/screenshots/home_screen.png" alt="Home Screen" width="300" style="display: inline-block; margin-right: 10px;" />
+  <img src="assets/screenshots/quest_details.png" alt="Quest Details" width="300" style="display: inline-block; margin-right: 10px;" />
+  <img src="assets/screenshots/lore_scraps.png" alt="Lore Scraps" width="300" style="display: inline-block; margin-right: 10px;" />
+</div>
 
 
 ## 🚀 Installation
