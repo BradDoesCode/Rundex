@@ -1,9 +1,10 @@
-import 'package:dragonwilds_companion/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:runedex/theme.dart';
 
 class CustomCheckBox extends ConsumerWidget {
-  const CustomCheckBox({super.key, required this.isChecked, required this.onChanged});
+  const CustomCheckBox(
+      {super.key, required this.isChecked, required this.onChanged});
   final bool isChecked;
   final bool? Function(bool) onChanged;
   @override

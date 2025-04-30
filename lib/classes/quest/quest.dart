@@ -1,5 +1,5 @@
-import 'package:dragonwilds_companion/classes/step/step.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:runedex/classes/step/step.dart';
 
 part 'quest.freezed.dart';
 part 'quest.g.dart';

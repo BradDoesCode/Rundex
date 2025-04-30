@@ -1,10 +1,10 @@
-import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
-import 'package:dragonwilds_companion/classes/quest/quest.dart';
-import 'package:dragonwilds_companion/main.dart';
-import 'package:dragonwilds_companion/screens/lore_scraps_screen.dart';
-import 'package:dragonwilds_companion/screens/quest_list_screen.dart';
-import 'package:dragonwilds_companion/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:runedex/classes/provider/completed_items.dart';
+import 'package:runedex/classes/quest/quest.dart';
+import 'package:runedex/main.dart';
+import 'package:runedex/screens/lore_scraps_screen.dart';
+import 'package:runedex/screens/quest_list_screen.dart';
+import 'package:runedex/utils/utils.dart';
 
 enum ProgressionSections { mainQuest, sideQuest, lore }
 

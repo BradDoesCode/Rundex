@@ -1,14 +1,14 @@
-import 'package:dragonwilds_companion/classes/collectibles/collectibles.dart';
-import 'package:dragonwilds_companion/classes/quest/quest.dart';
-import 'package:dragonwilds_companion/screens/home_screen.dart';
-import 'package:dragonwilds_companion/theme.dart';
-import 'package:dragonwilds_companion/utils/utils.dart';
-import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
-import 'package:dragonwilds_companion/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:runedex/classes/collectibles/collectibles.dart';
+import 'package:runedex/classes/quest/quest.dart';
+import 'package:runedex/screens/home_screen.dart';
+import 'package:runedex/theme.dart';
+import 'package:runedex/utils/utils.dart';
+import 'package:runedex/widgets/app_bar_background.dart';
+import 'package:runedex/widgets/drawer.dart';
 
 late final List<Quest> kMainQuests;
 late final List<Quest> kSideQuests;

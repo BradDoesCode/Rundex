@@ -1,14 +1,14 @@
 import 'dart:ui';
 
-import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
-import 'package:dragonwilds_companion/classes/quest/quest.dart';
-import 'package:dragonwilds_companion/classes/step/step.dart' as cs;
-import 'package:dragonwilds_companion/screens/quest_list_screen.dart';
-import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
-import 'package:dragonwilds_companion/widgets/body_background.dart';
-import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:runedex/classes/provider/completed_items.dart';
+import 'package:runedex/classes/quest/quest.dart';
+import 'package:runedex/classes/step/step.dart' as cs;
+import 'package:runedex/screens/quest_list_screen.dart';
+import 'package:runedex/widgets/app_bar_background.dart';
+import 'package:runedex/widgets/body_background.dart';
+import 'package:runedex/widgets/progress_card.dart';
 
 class QuestDetailScreen extends ConsumerWidget {
   const QuestDetailScreen({super.key, required this.quest});

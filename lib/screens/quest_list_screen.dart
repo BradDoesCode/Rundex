@@ -1,12 +1,12 @@
-import 'package:dragonwilds_companion/classes/provider/completed_items.dart';
-import 'package:dragonwilds_companion/classes/quest/quest.dart';
-import 'package:dragonwilds_companion/main.dart';
-import 'package:dragonwilds_companion/screens/quest_detail_screen.dart';
-import 'package:dragonwilds_companion/widgets/app_bar_background.dart';
-import 'package:dragonwilds_companion/widgets/body_background.dart';
-import 'package:dragonwilds_companion/widgets/progress_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:runedex/classes/provider/completed_items.dart';
+import 'package:runedex/classes/quest/quest.dart';
+import 'package:runedex/main.dart';
+import 'package:runedex/screens/quest_detail_screen.dart';
+import 'package:runedex/widgets/app_bar_background.dart';
+import 'package:runedex/widgets/body_background.dart';
+import 'package:runedex/widgets/progress_card.dart';
 
 class QuestListScreen extends StatelessWidget {
   const QuestListScreen({super.key, required this.type, required this.title});

@@ -1,5 +1,5 @@
-import 'package:dragonwilds_companion/utils/hive.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:runedex/utils/hive.dart';
 
 part 'completed_items.g.dart';
 
