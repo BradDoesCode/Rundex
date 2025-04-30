@@ -17,6 +17,8 @@
     </intent>
     </queries>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:label="Runedex"
         android:name="${applicationName}"
@@ -61,4 +63,5 @@
             <data android:mimeType="text/plain"/>
         </intent>
     </queries>
+
 </manifest>

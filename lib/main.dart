@@ -17,7 +17,7 @@ late final List<Collectible> kLoreScraps;
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  Hive.initFlutter();
+  await Hive.initFlutter();
   kMainQuests = await loadQuests(QuestType.main);
   kSideQuests = await loadQuests(QuestType.side);
   kLoreScraps = await loadLoreScraps();
