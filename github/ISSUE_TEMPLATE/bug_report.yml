@@ -1,0 +1,32 @@
+name: Bug Report
+description: Report a bug or issue with the project.
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please fill out the details below.
+
+  - type: input
+    id: title
+    attributes:
+      label: Bug Title
+      description: Provide a short and descriptive title for the bug.
+      placeholder: "e.g., App crashes on startup"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Provide a detailed description of the issue.
+      placeholder: "Describe the bug in detail, including steps to reproduce it."
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is the issue?
+      options:
+        - Low
+        - Medium
+        - High

@@ -1,0 +1,22 @@
+name: Feedback
+description: Share your feedback or suggestions for the project.
+labels: feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We value your feedback! Please share your thoughts below.
+
+  - type: input
+    id: title
+    attributes:
+      label: Feedback Title
+      description: Provide a short and descriptive title for your feedback.
+      placeholder: "e.g., Suggestion for a new feature"
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Feedback Details
+      description: Provide detailed feedback or suggestions.
+      placeholder: "Describe your feedback or suggestion in detail."
