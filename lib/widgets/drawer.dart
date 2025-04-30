@@ -64,7 +64,20 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.coffee),
             title: const Text('Buy us a health potion'),
-            onTap: () {},
+            onTap: () async {
+              final Uri url =
+                  Uri.parse('https://buymeacoffee.com/braddoescode');
+              await launchWeb(url);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.privacy_tip),
+            title: const Text('Privacy Policy'),
+            onTap: () async {
+              final Uri url = Uri.parse(
+                  'https://github.com/BradDoesCode/Rundex/wiki/Privacy-Policy');
+              await launchWeb(url);
+            },
           ),
           FutureBuilder(
             future: getVersion(),
