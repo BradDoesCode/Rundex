@@ -1,4 +1,4 @@
-package com.example.dragonwilds_companion
+package uk.co.runedex
 
 import io.flutter.embedding.android.FlutterActivity
 
