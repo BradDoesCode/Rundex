@@ -35,11 +35,6 @@ Whether you're aiming for 100% or just want to stay organized, Runedex helps you
 
 ### 📱 Android
 - Available to test from [Google Play Store](https://play.google.com/apps/testing/uk.co.runedex) after applying [here](https://github.com/BradDoesCode/Rundex/issues/new/choose)
-- Install from the [Google Play Store](#) *(coming soon)*
-
-### 🍎 iOS
-- Available on the App Store *(coming soon)*
-
 ---
 
 ## 🔒 Privacy Policy
